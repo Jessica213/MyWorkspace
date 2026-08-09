@@ -9,7 +9,7 @@ const CORE_ASSETS = [
   './manifest.webmanifest',
   './icon.svg',
   './config.js',
-  './supabase.min.js'
+  'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2'
 ];
 
 self.addEventListener('install', (e) => {
@@ -37,7 +37,7 @@ self.addEventListener('fetch', (e) => {
   e.respondWith(
     fetch(req)
       .then((res) => {
-        if (res && res.ok && url.origin === location.origin) {
+        if (res && res.ok && (url.origin === location.origin || url.href.startsWith('https://cdn.jsdelivr.net/'))) {
           const copy = res.clone();
           caches.open(CACHE_NAME).then((c) => c.put(req, copy)).catch(() => {});
         }

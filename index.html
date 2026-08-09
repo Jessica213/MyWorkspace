@@ -9,7 +9,7 @@
 <link rel="manifest" href="manifest.webmanifest">
 <title>Free</title>
 <!-- 云端同步依赖（延迟加载，不影响本地优先启动） -->
-<script defer src="supabase.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script defer src="config.js"></script>
 <style>
 /* ============ 莫兰迪温柔配色变量 ============ */
@@ -3972,7 +3972,7 @@ if (lastWisdomDate !== todayStr()) {
   function toast(msg) { try { if (window.showToast) window.showToast(msg); } catch (e) {} }
   function nowIso() { return new Date().toISOString(); }
   function isOnline() { return !window.navigator || navigator.onLine !== false; }
-  function hasClient() { return window.supabase && typeof window.supabase.createClient === 'function'; }
+  function hasClient() { return typeof window.createClient === 'function'; }
   function debounce(fn, ms) { var t; return function () { clearTimeout(t); t = setTimeout(fn, ms); }; }
   function getUserId() { return session && session.user ? session.user.id : null; }
 
@@ -3992,7 +3992,7 @@ if (lastWisdomDate !== todayStr()) {
     var c = effectiveConfig();
     if (c && hasClient()) {
       try {
-        supabase = window.supabase.createClient(c.url, c.anonKey, {
+        supabase = window.createClient(c.url, c.anonKey, {
           auth: { persistSession: true, autoRefreshToken: true, detectSessionInUrl: true }
         });
         return true;
