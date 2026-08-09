@@ -1,0 +1,3761 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="theme-color" content="#7C9885">
+<link rel="manifest" href="data:application/json;base64,eyJuYW1lIjoiRnJlZSIsInNob3J0X25hbWUiOiJGcmVlIiwic3RhcnRfdXJsIjoiLiIsImRpc3BsYXkiOiJzdGFuZGFsb25lIiwiYmFja2dyb3VuZF9jb2xvciI6IiNGN0Y1RjAiLCJ0aGVtZV9jb2xvciI6IiM3Qzk4ODUiLCJpY29ucyI6W3sic3JjIjoiZGF0YTppbWFnZS9zdmcreG1sO2Jhc2U2NCxQSE4yWnlCNGJXeHVjejBpYUhSMGNEb3ZMM2QzZHk1M015NXZjbWN2TWpBd01DOXpkbWNpSUhkcFpIUm9QU0l4T1RJaUlHaGxhV2RvZEQwaU1Ua3lJaUIyYVdWM1FtOTRQU0l3SURBZ01Ua3lJREU1TWlJK1BISmxZM1FnZDJsa2RHZzlJakU1TWlJZ2FHVnBaMmgwUFNJeE9USWlJSEo0UFNJek5pSWdabWxzYkQwaUkwWTNSalZHTUNJdlBqeG5JSFJ5WVc1elptOXliVDBpZEhKaGJuTnNZWFJsS0RrMklEazJLU0krUEdWc2JHbHdjMlVnWTNnOUlqQWlJR041UFNJdE16VWlJSEo0UFNJeE9DSWdjbms5SWpNeUlpQm1hV3hzUFNJak4wTTVPRGcxSWlCMGNtRnVjMlp2Y20wOUluSnZkR0YwWlNnd0tTSXZQanhsYkd4cGNITmxJR040UFNJd0lpQmplVDBpTFRNMUlpQnllRDBpTVRnaUlISjVQU0l6TWlJZ1ptbHNiRDBpSTBFNFF6QkNNQ0lnZEhKaGJuTm1iM0p0UFNKeWIzUmhkR1VvTnpJcElpOCtQR1ZzYkdsd2MyVWdZM2c5SWpBaUlHTjVQU0l0TXpVaUlISjRQU0l4T0NJZ2NuazlJak15SWlCbWFXeHNQU0lqTjBNNU9EZzFJaUIwY21GdWMyWnZjbTA5SW5KdmRHRjBaU2d4TkRRcElpOCtQR1ZzYkdsd2MyVWdZM2c5SWpBaUlHTjVQU0l0TXpVaUlISjRQU0l4T0NJZ2NuazlJak15SWlCbWFXeHNQU0lqUVRoRE1FSXdJaUIwY21GdWMyWnZjbTA5SW5KdmRHRjBaU2d5TVRZcElpOCtQR1ZzYkdsd2MyVWdZM2c5SWpBaUlHTjVQU0l0TXpVaUlISjRQU0l4T0NJZ2NuazlJak15SWlCbWFXeHNQU0lqTjBNNU9EZzFJaUIwY21GdWMyWnZjbTA5SW5KdmRHRjBaU2d5T0RncElpOCtQR05wY21Oc1pTQmplRDBpTUNJZ1kzazlJakFpSUhJOUlqSXlJaUJtYVd4c1BTSWpSVFpET0RnM0lpOCtQQzluUGp3dmMzWm5QZz09Iiwic2l6ZXMiOiIxOTJ4MTkyIiwidHlwZSI6ImltYWdlL3N2Zyt4bWwifV19">
+<title>Free</title>
+<style>
+/* ============ 莫兰迪温柔配色变量 ============ */
+:root {
+  --c-primary: #7C9885;
+  --c-primary-light: #A8C0B0;
+  --c-primary-dark: #5C7A65;
+  --c-primary-50: #F0F5F2;
+  --c-primary-100: #D9E5DF;
+
+  --c-body: #3D4F44;
+  --c-body-soft: #6B7B70;
+  --c-muted: #9CA8A0;
+
+  --c-bg: #F7F5F0;
+  --c-card: #FFFFFF;
+  --c-card-soft: #FBFAF7;
+  --c-border: #E8E4DC;
+  --c-border-soft: #F0EDE6;
+
+  --c-red: #C97B7B;
+  --c-red-soft: #F5E6E6;
+  --c-red-bg: #FBF0F0;
+  --c-orange: #D4A574;
+  --c-orange-soft: #FAF0E0;
+  --c-yellow: #E6C887;
+  --c-yellow-soft: #FBF5E6;
+  --c-blue: #88A8C0;
+  --c-blue-soft: #E8F0F5;
+  --c-green: #7C9885;
+  --c-green-soft: #E8F0EA;
+  --c-purple: #A89BC0;
+  --c-purple-soft: #F0EBF5;
+  --c-pink: #D4A5A5;
+  --c-pink-soft: #F5E8E8;
+  --c-brown: #B8A088;
+  --c-brown-soft: #F2EBE0;
+
+  --radius: 14px;
+  --radius-sm: 8px;
+  --shadow: 0 2px 12px rgba(60, 79, 68, 0.06);
+  --shadow-hover: 0 4px 20px rgba(60, 79, 68, 0.12);
+  --font: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Roboto, sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+html, body {
+  font-family: var(--font);
+  background: var(--c-bg);
+  color: var(--c-body);
+  line-height: 1.6;
+  font-size: 15px;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+button { font-family: var(--font); cursor: pointer; border: none; background: none; color: inherit; }
+input, textarea, select { font-family: var(--font); color: var(--c-body); }
+input:focus, textarea:focus, select:focus { outline: none; }
+
+svg { display: inline-block; vertical-align: middle; }
+
+/* ============ 顶部 Header ============ */
+.app-header {
+  background: linear-gradient(135deg, var(--c-primary) 0%, var(--c-primary-dark) 100%);
+  color: #fff;
+  padding: 20px 20px 0;
+  border-radius: 0 0 24px 24px;
+  box-shadow: 0 4px 20px rgba(92, 122, 101, 0.2);
+  position: relative;
+  z-index: 10;
+}
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+.header-title h1 {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+.header-title .subtitle {
+  font-size: 12px;
+  opacity: 0.85;
+  margin-top: 2px;
+}
+.header-actions {
+  display: flex;
+  gap: 8px;
+}
+.header-btn {
+  background: rgba(255,255,255,0.18);
+  color: #fff;
+  padding: 7px 11px;
+  border-radius: 10px;
+  font-size: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: background 0.2s;
+  min-height: 36px;
+}
+.header-btn:hover, .header-btn:active { background: rgba(255,255,255,0.3); }
+.header-btn svg { width: 14px; height: 14px; }
+
+/* 倒计时卡片 */
+.countdown-bar {
+  background: rgba(255,255,255,0.15);
+  border-radius: 14px;
+  padding: 14px 16px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  backdrop-filter: blur(4px);
+}
+.countdown-ring {
+  flex-shrink: 0;
+}
+.countdown-ring svg { width: 56px; height: 56px; }
+.countdown-ring circle { fill: none; stroke-width: 4; }
+.countdown-ring .track { stroke: rgba(255,255,255,0.2); }
+.countdown-ring .progress { stroke: #fff; stroke-linecap: round; transition: stroke-dashoffset 0.8s ease; }
+.countdown-info { flex: 1; min-width: 0; }
+.countdown-info .label { font-size: 11px; opacity: 0.8; }
+.countdown-info .days {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+.countdown-info .days span { font-size: 13px; font-weight: 400; opacity: 0.85; margin-left: 2px; }
+.countdown-info .target { font-size: 11px; opacity: 0.7; }
+
+/* Tab 导航 */
+.tab-nav {
+  display: flex;
+  gap: 4px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding-bottom: 14px;
+}
+.tab-nav::-webkit-scrollbar { display: none; }
+.tab-btn {
+  flex-shrink: 0;
+  padding: 8px 14px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.75);
+  background: rgba(255,255,255,0.1);
+  transition: all 0.2s;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  min-height: 36px;
+}
+.tab-btn svg { width: 15px; height: 15px; }
+.tab-btn.active {
+  background: #fff;
+  color: var(--c-primary-dark);
+  font-weight: 600;
+}
+
+/* ============ 主体容器 ============ */
+.main-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px 16px 100px;
+}
+
+/* ============ 今天要处理 ============ */
+.today-section {
+  background: var(--c-card);
+  border-radius: var(--radius);
+  padding: 16px;
+  margin-bottom: 16px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--c-border-soft);
+}
+.section-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+.section-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--c-body);
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.section-title svg { width: 18px; height: 18px; color: var(--c-primary); }
+.section-title .count-badge {
+  background: var(--c-primary-50);
+  color: var(--c-primary-dark);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 10px;
+  margin-left: 2px;
+}
+.today-list { display: flex; flex-direction: column; gap: 8px; }
+.today-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  background: var(--c-card-soft);
+  border-left: 3px solid var(--c-border);
+  transition: all 0.2s;
+}
+.today-item.overdue {
+  border-left-color: var(--c-red);
+  background: var(--c-red-bg);
+}
+.today-item.today-item-due {
+  border-left-color: var(--c-orange);
+}
+.today-check {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2px solid var(--c-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+.today-check:hover { border-color: var(--c-primary); }
+.today-check svg { width: 12px; height: 12px; color: #fff; opacity: 0; transition: opacity 0.2s; }
+.today-check.checked, .today-item.done .today-check {
+  background: var(--c-primary);
+  border-color: var(--c-primary);
+}
+.today-check.checked svg, .today-item.done .today-check svg { opacity: 1; }
+.today-item.done .today-text { text-decoration: line-through; color: var(--c-muted); }
+.today-content { flex: 1; min-width: 0; }
+.today-text {
+  font-size: 14px;
+  word-break: break-word;
+}
+.today-meta {
+  font-size: 11px;
+  color: var(--c-muted);
+  margin-top: 2px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.today-meta .tag-overdue { color: var(--c-red); font-weight: 600; }
+.today-meta .tag-due { color: var(--c-orange); font-weight: 600; }
+.today-tag {
+  font-size: 10px;
+  padding: 1px 7px;
+  border-radius: 6px;
+  background: var(--c-primary-50);
+  color: var(--c-primary-dark);
+  font-weight: 500;
+}
+.today-tag.work { background: var(--c-blue-soft); color: #4A7090; }
+.today-tag.growth { background: var(--c-green-soft); color: var(--c-primary-dark); }
+.today-tag.study { background: var(--c-purple-soft); color: #6B5F8A; }
+.today-tag.life { background: var(--c-pink-soft); color: #A66060; }
+.today-empty {
+  text-align: center;
+  padding: 20px;
+  color: var(--c-muted);
+  font-size: 13px;
+}
+
+/* 数据备份提示 */
+.backup-notice {
+  background: var(--c-yellow-soft);
+  border: 1px solid #E6D9B8;
+  color: #8A7440;
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.backup-notice svg { width: 16px; height: 16px; flex-shrink: 0; }
+
+/* ============ Tab 面板 ============ */
+.tab-panel { display: none; }
+.tab-panel.active { display: block; animation: fadeIn 0.3s ease; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+/* ============ 卡片 ============ */
+.card {
+  background: var(--c-card);
+  border-radius: var(--radius);
+  padding: 16px;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--c-border-soft);
+}
+.card-title {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.card-title svg { width: 17px; height: 17px; color: var(--c-primary); }
+.card-title .right-action {
+  margin-left: auto;
+  font-size: 12px;
+  color: var(--c-primary);
+  font-weight: 500;
+  cursor: pointer;
+}
+
+/* ============ 输入区 ============ */
+.input-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+.input-row input, .input-row select, .input-row textarea {
+  flex: 1;
+  min-width: 0;
+  padding: 10px 12px;
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius-sm);
+  font-size: 15px;
+  background: var(--c-card-soft);
+  transition: border-color 0.2s;
+  min-height: 44px;
+}
+.input-row input:focus, .input-row select:focus { border-color: var(--c-primary); }
+.btn-primary {
+  background: var(--c-primary);
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  font-weight: 500;
+  transition: background 0.2s;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
+}
+.btn-primary:hover { background: var(--c-primary-dark); }
+.btn-primary svg { width: 15px; height: 15px; }
+.btn-ghost {
+  padding: 8px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  color: var(--c-body-soft);
+  background: var(--c-card-soft);
+  border: 1px solid var(--c-border);
+  transition: all 0.2s;
+  min-height: 40px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.btn-ghost:hover { border-color: var(--c-primary); color: var(--c-primary); }
+.btn-ghost svg { width: 14px; height: 14px; }
+.btn-danger-ghost {
+  color: var(--c-red);
+  border-color: var(--c-red-soft);
+  background: var(--c-red-bg);
+}
+
+/* ============ 任务列表 ============ */
+.task-list { display: flex; flex-direction: column; gap: 6px; }
+.task-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  background: var(--c-card-soft);
+  transition: all 0.2s;
+  position: relative;
+}
+.task-item:hover { background: var(--c-primary-50); }
+.task-check {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  border: 2px solid var(--c-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  cursor: pointer;
+  margin-top: 1px;
+}
+.task-check:hover { border-color: var(--c-primary); }
+.task-check svg { width: 13px; height: 13px; color: #fff; opacity: 0; transition: opacity 0.15s; }
+.task-item.done .task-check {
+  background: var(--c-primary);
+  border-color: var(--c-primary);
+}
+.task-item.done .task-check svg { opacity: 1; }
+.task-item.done .task-text { text-decoration: line-through; color: var(--c-muted); }
+.task-body { flex: 1; min-width: 0; }
+.task-text {
+  font-size: 14px;
+  word-break: break-word;
+  line-height: 1.5;
+}
+.task-meta {
+  font-size: 11px;
+  color: var(--c-muted);
+  margin-top: 3px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.task-priority {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 1px 6px;
+  border-radius: 5px;
+}
+.task-priority.p0 { background: var(--c-red-soft); color: var(--c-red); }
+.task-priority.p1 { background: var(--c-orange-soft); color: #A07030; }
+.task-priority.p2 { background: var(--c-blue-soft); color: #4A7090; }
+.task-due { font-size: 11px; }
+.task-due.overdue { color: var(--c-red); font-weight: 600; }
+.task-due.today { color: var(--c-orange); font-weight: 600; }
+.task-actions {
+  display: flex;
+  gap: 4px;
+  opacity: 0;
+  transition: opacity 0.2s;
+  flex-shrink: 0;
+}
+.task-item:hover .task-actions { opacity: 1; }
+.task-action-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--c-muted);
+  transition: all 0.15s;
+}
+.task-action-btn:hover { background: var(--c-border-soft); color: var(--c-body); }
+.task-action-btn.delete:hover { background: var(--c-red-bg); color: var(--c-red); }
+.task-action-btn svg { width: 14px; height: 14px; }
+
+.media-item .task-actions,
+.happy-item .task-actions {
+  opacity: 1;
+}
+.media-item .task-action-btn,
+.happy-item .task-action-btn {
+  width: 32px;
+  height: 32px;
+}
+
+.task-filters {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+.filter-btn {
+  padding: 5px 12px;
+  border-radius: 14px;
+  font-size: 12px;
+  color: var(--c-body-soft);
+  background: var(--c-card-soft);
+  border: 1px solid var(--c-border);
+  transition: all 0.2s;
+  min-height: 32px;
+}
+.filter-btn.active {
+  background: var(--c-primary);
+  color: #fff;
+  border-color: var(--c-primary);
+}
+
+.task-stats {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+.stat-pill {
+  flex: 1;
+  background: var(--c-card-soft);
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
+  text-align: center;
+}
+.stat-pill .num {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--c-primary-dark);
+}
+.stat-pill .lbl {
+  font-size: 11px;
+  color: var(--c-muted);
+  margin-top: 2px;
+}
+.stat-pill.done .num { color: var(--c-primary); }
+
+/* 周视图 */
+.week-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+  margin-bottom: 12px;
+}
+.week-cell {
+  background: var(--c-card-soft);
+  border-radius: 8px;
+  padding: 8px 4px;
+  text-align: center;
+  border: 1px solid var(--c-border-soft);
+  min-height: 64px;
+  position: relative;
+}
+.week-cell .wd { font-size: 10px; color: var(--c-muted); }
+.week-cell .wdate { font-size: 13px; font-weight: 600; margin-top: 2px; }
+.week-cell .wcount {
+  font-size: 10px;
+  margin-top: 4px;
+  color: var(--c-primary);
+  font-weight: 600;
+}
+.week-cell.today {
+  background: var(--c-primary-50);
+  border-color: var(--c-primary);
+}
+.week-cell.today .wdate { color: var(--c-primary-dark); }
+
+/* ============ 成长打卡 ============ */
+.growth-tabs {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+.growth-tab {
+  flex: 1;
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 500;
+  background: var(--c-card-soft);
+  color: var(--c-body-soft);
+  border: 2px solid transparent;
+  transition: all 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  min-height: 44px;
+  justify-content: center;
+}
+.growth-tab svg { width: 20px; height: 20px; }
+.growth-tab.active.body { background: var(--c-green-soft); color: var(--c-primary-dark); border-color: var(--c-primary); }
+.growth-tab.active.mind { background: var(--c-purple-soft); color: #6B5F8A; border-color: var(--c-purple); }
+.growth-tab.active.brain { background: var(--c-blue-soft); color: #4A7090; border-color: var(--c-blue); }
+
+.habit-list { display: flex; flex-direction: column; gap: 10px; }
+.habit-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border-radius: var(--radius-sm);
+  background: var(--c-card-soft);
+  border: 1px solid var(--c-border-soft);
+}
+.habit-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.habit-icon svg { width: 20px; height: 20px; }
+.habit-icon.body { background: var(--c-green-soft); color: var(--c-primary-dark); }
+.habit-icon.mind { background: var(--c-purple-soft); color: #6B5F8A; }
+.habit-icon.brain { background: var(--c-blue-soft); color: #4A7090; }
+.habit-info { flex: 1; min-width: 0; }
+.habit-name { font-size: 14px; font-weight: 500; }
+.habit-streak {
+  font-size: 11px;
+  color: var(--c-muted);
+  margin-top: 2px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.habit-streak .fire { color: var(--c-orange); display: inline-flex; }
+.habit-streak .fire svg { width: 14px; height: 14px; }
+.habit-streak .streak-num { font-weight: 600; color: var(--c-orange); }
+.habit-check-btn {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  border: 2px solid var(--c-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  background: var(--c-card);
+}
+.habit-check-btn:hover { border-color: var(--c-primary); }
+.habit-check-btn svg { width: 20px; height: 20px; color: #fff; opacity: 0; transition: opacity 0.2s; }
+.habit-check-btn.checked {
+  background: var(--c-primary);
+  border-color: var(--c-primary);
+}
+.habit-check-btn.checked svg { opacity: 1; }
+.habit-check-btn.checked.body { background: var(--c-primary); border-color: var(--c-primary); }
+.habit-check-btn.checked.mind { background: var(--c-purple); border-color: var(--c-purple); }
+.habit-check-btn.checked.brain { background: var(--c-blue); border-color: var(--c-blue); }
+
+/* 周打卡矩阵 */
+.habit-week {
+  display: flex;
+  gap: 4px;
+  margin-top: 8px;
+}
+.habit-day {
+  flex: 1;
+  height: 24px;
+  border-radius: 5px;
+  background: var(--c-border-soft);
+  position: relative;
+}
+.habit-day.checked { background: var(--c-primary); }
+.habit-day.checked.mind { background: var(--c-purple); }
+.habit-day.checked.brain { background: var(--c-blue); }
+.habit-day.today { box-shadow: 0 0 0 2px var(--c-primary-dark) inset; }
+.habit-day-label {
+  font-size: 9px;
+  text-align: center;
+  color: var(--c-muted);
+  margin-top: 2px;
+}
+.habit-week-labels {
+  display: flex;
+  gap: 4px;
+  margin-top: 2px;
+}
+.habit-week-labels span {
+  flex: 1;
+  text-align: center;
+  font-size: 9px;
+  color: var(--c-muted);
+}
+
+/* 智慧锦囊卡片 */
+.wisdom-card {
+  background: linear-gradient(135deg, var(--c-purple-soft) 0%, var(--c-pink-soft) 100%);
+  border-radius: var(--radius);
+  padding: 16px;
+  margin-bottom: 14px;
+  border: 1px solid #E8DDE8;
+}
+.wisdom-card .wlabel {
+  font-size: 11px;
+  color: #6B5F8A;
+  font-weight: 600;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.wisdom-card .wlabel svg { width: 14px; height: 14px; }
+.wisdom-card .wtext {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--c-body);
+}
+.wisdom-card .wsource { font-size: 11px; color: var(--c-muted); margin-top: 8px; }
+.wisdom-refresh {
+  margin-top: 10px;
+  font-size: 12px;
+  color: var(--c-purple);
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+}
+.wisdom-refresh svg { width: 13px; height: 13px; }
+
+/* ============ 学习台 ============ */
+.study-subjects {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-bottom: 16px;
+}
+.subject-card {
+  background: var(--c-card-soft);
+  border-radius: var(--radius-sm);
+  padding: 12px;
+  border: 1px solid var(--c-border-soft);
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.subject-card:hover { border-color: var(--c-primary); }
+.subject-card.active { background: var(--c-primary-50); border-color: var(--c-primary); }
+.subject-card .sname { font-size: 13px; font-weight: 600; }
+.subject-card .scount { font-size: 11px; color: var(--c-muted); margin-top: 3px; }
+.subject-card .sbar {
+  height: 4px;
+  background: var(--c-border-soft);
+  border-radius: 2px;
+  margin-top: 8px;
+  overflow: hidden;
+}
+.subject-card .sbar-fill {
+  height: 100%;
+  background: var(--c-primary);
+  border-radius: 2px;
+  transition: width 0.4s;
+}
+
+.study-task-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  background: var(--c-card-soft);
+  margin-bottom: 6px;
+}
+.study-task-item.done .study-text { text-decoration: line-through; color: var(--c-muted); }
+.study-check {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  border: 2px solid var(--c-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin-top: 1px;
+  transition: all 0.2s;
+}
+.study-check:hover { border-color: var(--c-primary); }
+.study-check svg { width: 13px; height: 13px; color: #fff; opacity: 0; }
+.study-task-item.done .study-check { background: var(--c-primary); border-color: var(--c-primary); }
+.study-task-item.done .study-check svg { opacity: 1; }
+.study-body { flex: 1; min-width: 0; }
+.study-text { font-size: 14px; word-break: break-word; }
+.study-meta { font-size: 11px; color: var(--c-muted); margin-top: 3px; }
+
+/* ============ 娱乐幸福记 ============ */
+.media-list { display: flex; flex-direction: column; gap: 10px; }
+.media-item {
+  display: flex;
+  gap: 12px;
+  padding: 12px;
+  border-radius: var(--radius-sm);
+  background: var(--c-card-soft);
+  border: 1px solid var(--c-border-soft);
+}
+.media-poster {
+  width: 48px;
+  height: 64px;
+  border-radius: 6px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+  padding: 4px;
+  line-height: 1.2;
+}
+.media-info { flex: 1; min-width: 0; }
+.media-title { font-size: 14px; font-weight: 600; }
+.media-meta { font-size: 11px; color: var(--c-muted); margin-top: 2px; }
+.media-rating {
+  margin-top: 4px;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+.media-rating .star { color: var(--c-yellow); }
+.media-rating .star-empty { color: var(--c-border); }
+.media-rating svg { width: 13px; height: 13px; }
+.media-note { font-size: 12px; color: var(--c-body-soft); margin-top: 4px; line-height: 1.5; }
+
+.happiness-list { display: flex; flex-direction: column; gap: 8px; }
+.happy-item {
+  padding: 12px 14px;
+  border-radius: var(--radius-sm);
+  background: linear-gradient(135deg, var(--c-yellow-soft) 0%, var(--c-pink-soft) 100%);
+  border: 1px solid #F0E6D9;
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+.happy-icon {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.happy-icon svg { width: 15px; height: 15px; color: var(--c-orange); }
+.happy-body { flex: 1; min-width: 0; }
+.happy-text { font-size: 13px; line-height: 1.6; word-break: break-word; }
+.happy-date { font-size: 11px; color: var(--c-muted); margin-top: 3px; }
+
+/* ============ 学习舱 ============ */
+.study-pod {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: var(--c-bg);
+  z-index: 900;
+  display: none;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.study-pod.active { display: block; animation: podFadeIn 0.3s ease; }
+@keyframes podFadeIn { from { opacity: 0; transform: translateX(20px); } to { opacity: 1; transform: translateX(0); } }
+
+.pod-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(247, 245, 240, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--c-border-soft);
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-top: calc(14px + env(safe-area-inset-top));
+}
+.pod-back {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: var(--c-card);
+  border: 1px solid var(--c-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--c-body);
+  font-size: 18px;
+  transition: all 0.2s;
+}
+.pod-back:active { transform: scale(0.95); }
+.pod-back svg { width: 18px; height: 18px; }
+.pod-title-wrap { flex: 1; min-width: 0; }
+.pod-title { font-size: 15px; font-weight: 600; }
+.pod-progress { font-size: 11px; color: var(--c-muted); margin-top: 1px; }
+
+.pod-body {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 16px 16px calc(80px + env(safe-area-inset-bottom));
+}
+
+/* 题目卡片 */
+.q-card {
+  background: var(--c-card);
+  border-radius: var(--radius);
+  padding: 18px 16px;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--c-border-soft);
+}
+.q-tag-row {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+.q-tag {
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-weight: 500;
+}
+.q-tag.cat { background: var(--c-primary-50); color: var(--c-primary-dark); }
+.q-tag.num { background: var(--c-blue-soft); color: #4A7090; }
+.q-tag.done { background: var(--c-green-soft); color: var(--c-primary-dark); }
+.q-tag.correct { background: var(--c-green-soft); color: var(--c-primary); }
+.q-tag.wrong { background: var(--c-red-soft); color: var(--c-red); }
+
+.q-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+.q-material {
+  background: var(--c-card-soft);
+  border-left: 3px solid var(--c-primary-light);
+  padding: 12px 14px;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--c-body-soft);
+  margin-bottom: 12px;
+  white-space: pre-wrap;
+}
+.q-material-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--c-primary);
+  margin-bottom: 6px;
+}
+.q-question {
+  font-size: 14px;
+  line-height: 1.7;
+  margin-bottom: 14px;
+}
+
+/* 选项 */
+.q-options { display: flex; flex-direction: column; gap: 8px; }
+.q-option {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px 14px;
+  border-radius: var(--radius-sm);
+  background: var(--c-card-soft);
+  border: 2px solid var(--c-border-soft);
+  cursor: pointer;
+  transition: all 0.2s;
+  min-height: 48px;
+}
+.q-option:hover { border-color: var(--c-primary-light); }
+.q-option .opt-letter {
+  flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--c-border-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--c-body-soft);
+  transition: all 0.2s;
+}
+.q-option .opt-text { flex: 1; font-size: 14px; line-height: 1.5; padding-top: 3px; }
+.q-option.selected { border-color: var(--c-primary); background: var(--c-primary-50); }
+.q-option.selected .opt-letter { background: var(--c-primary); color: #fff; }
+.q-option.correct { border-color: var(--c-primary); background: var(--c-green-soft); }
+.q-option.correct .opt-letter { background: var(--c-primary); color: #fff; }
+.q-option.wrong { border-color: var(--c-red); background: var(--c-red-bg); }
+.q-option.wrong .opt-letter { background: var(--c-red); color: #fff; }
+.q-option.disabled { cursor: default; }
+
+/* 解析 */
+.q-analysis {
+  margin-top: 12px;
+  padding: 12px 14px;
+  background: var(--c-yellow-soft);
+  border-radius: var(--radius-sm);
+  border-left: 3px solid var(--c-yellow);
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--c-body-soft);
+}
+.q-analysis-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #8A7440;
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.q-analysis-label svg { width: 14px; height: 14px; }
+
+/* 写作/答题区 */
+.q-textarea {
+  width: 100%;
+  min-height: 160px;
+  padding: 12px 14px;
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius-sm);
+  font-size: 15px;
+  line-height: 1.6;
+  background: var(--c-card-soft);
+  resize: vertical;
+  font-family: var(--font);
+  transition: border-color 0.2s;
+}
+.q-textarea:focus { border-color: var(--c-primary); }
+.q-textarea-hint {
+  font-size: 11px;
+  color: var(--c-muted);
+  margin-top: 6px;
+  text-align: right;
+  min-height: 16px;
+}
+.q-textarea-hint .saved { color: var(--c-primary); font-weight: 500; }
+.q-textarea-hint .saving { color: var(--c-muted); }
+
+/* 参考答案折叠 */
+.q-ref-toggle {
+  margin-top: 12px;
+  padding: 10px 14px;
+  background: var(--c-purple-soft);
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  color: #6B5F8A;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: all 0.2s;
+  min-height: 44px;
+}
+.q-ref-toggle:active { transform: scale(0.98); }
+.q-ref-toggle svg { width: 16px; height: 16px; transition: transform 0.3s; }
+.q-ref-toggle.open svg { transform: rotate(180deg); }
+.q-ref-content {
+  margin-top: 8px;
+  padding: 14px;
+  background: var(--c-purple-soft);
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  line-height: 1.8;
+  white-space: pre-wrap;
+  display: none;
+}
+.q-ref-content.show { display: block; animation: fadeIn 0.3s; }
+.q-ref-section { margin-bottom: 12px; }
+.q-ref-section:last-child { margin-bottom: 0; }
+.q-ref-section-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: #6B5F8A;
+  margin-bottom: 6px;
+}
+
+.q-points-list {
+  list-style: none;
+  padding: 0;
+}
+.q-points-list li {
+  font-size: 13px;
+  line-height: 1.7;
+  padding: 4px 0;
+  color: var(--c-body-soft);
+}
+
+/* 导航 */
+.pod-nav {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+  align-items: center;
+}
+.pod-nav-btn {
+  flex: 1;
+  padding: 12px;
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  transition: all 0.2s;
+  min-height: 44px;
+}
+.pod-nav-btn.prev { background: var(--c-card-soft); border: 1px solid var(--c-border); color: var(--c-body-soft); }
+.pod-nav-btn.next { background: var(--c-primary); color: #fff; }
+.pod-nav-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+.pod-nav-btn svg { width: 16px; height: 16px; }
+
+/* 题目列表 */
+.pod-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.pod-list-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px;
+  border-radius: var(--radius-sm);
+  background: var(--c-card);
+  border: 1px solid var(--c-border-soft);
+  cursor: pointer;
+  transition: all 0.2s;
+  min-height: 44px;
+}
+.pod-list-item:hover { border-color: var(--c-primary); box-shadow: var(--shadow-hover); }
+.pod-list-item:active { transform: scale(0.99); }
+.pod-list-num {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: var(--c-primary-50);
+  color: var(--c-primary-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+}
+.pod-list-item.done .pod-list-num { background: var(--c-primary); color: #fff; }
+.pod-list-item.wrong .pod-list-num { background: var(--c-red-soft); color: var(--c-red); }
+.pod-list-info { flex: 1; min-width: 0; }
+.pod-list-title { font-size: 14px; font-weight: 500; }
+.pod-list-meta { font-size: 11px; color: var(--c-muted); margin-top: 2px; }
+.pod-list-status {
+  flex-shrink: 0;
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 6px;
+}
+.pod-list-status.done { background: var(--c-green-soft); color: var(--c-primary); }
+.pod-list-status.wrong { background: var(--c-red-soft); color: var(--c-red); }
+
+/* 成长打卡"去练习"按钮 */
+.habit-practice-btn {
+  flex-shrink: 0;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  background: var(--c-primary-50);
+  color: var(--c-primary-dark);
+  border: 1px solid var(--c-primary-100);
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  min-height: 36px;
+  white-space: nowrap;
+}
+.habit-practice-btn:hover { background: var(--c-primary); color: #fff; }
+.habit-practice-btn svg { width: 13px; height: 13px; }
+
+/* 科目卡片进入提示 */
+.subject-enter {
+  font-size: 11px;
+  color: var(--c-primary);
+  margin-top: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  font-weight: 500;
+}
+.subject-enter svg { width: 12px; height: 12px; }
+.subject-card { cursor: pointer; }
+.subject-card:hover { box-shadow: var(--shadow-hover); }
+
+/* ============ 弹窗 ============ */
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(60, 79, 68, 0.5);
+  display: none;
+  align-items: flex-end;
+  justify-content: center;
+  z-index: 1000;
+  padding: 0;
+}
+.modal-overlay.active { display: flex; animation: fadeIn 0.2s; }
+.modal {
+  background: var(--c-card);
+  border-radius: 20px 20px 0 0;
+  width: 100%;
+  max-width: 500px;
+  max-height: 85vh;
+  overflow-y: auto;
+  padding: 20px 20px calc(20px + env(safe-area-inset-bottom));
+  animation: slideUp 0.3s ease;
+}
+@keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+.modal-title { font-size: 16px; font-weight: 600; }
+.modal-close {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--c-card-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--c-muted);
+  font-size: 18px;
+}
+.form-group { margin-bottom: 14px; }
+.form-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 6px;
+  color: var(--c-body-soft);
+}
+.form-control {
+  width: 100%;
+  padding: 11px 12px;
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius-sm);
+  font-size: 15px;
+  background: var(--c-card-soft);
+  transition: border-color 0.2s;
+  min-height: 44px;
+}
+.form-control:focus { border-color: var(--c-primary); }
+textarea.form-control { min-height: 80px; resize: vertical; line-height: 1.5; }
+.form-row { display: flex; gap: 10px; }
+.form-row .form-group { flex: 1; }
+
+.priority-pills { display: flex; gap: 6px; }
+.priority-pill {
+  flex: 1;
+  padding: 8px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+  background: var(--c-card-soft);
+  border: 2px solid var(--c-border);
+  transition: all 0.2s;
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.priority-pill.active.p0 { background: var(--c-red-soft); border-color: var(--c-red); color: var(--c-red); }
+.priority-pill.active.p1 { background: var(--c-orange-soft); border-color: var(--c-orange); color: #A07030; }
+.priority-pill.active.p2 { background: var(--c-blue-soft); border-color: var(--c-blue); color: #4A7090; }
+
+.star-rating {
+  display: flex;
+  gap: 4px;
+}
+.star-btn {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.star-btn svg { width: 24px; height: 24px; color: var(--c-border); transition: color 0.15s; }
+.star-btn.active svg { color: var(--c-yellow); }
+
+.modal-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 8px;
+}
+.modal-actions button { flex: 1; }
+
+/* 图标选择器 */
+.icon-picker {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 8px;
+}
+.icon-option {
+  width: 100%;
+  aspect-ratio: 1;
+  border: 2px solid #E0DDE5;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  background: #FAFAFC;
+}
+.icon-option svg {
+  width: 20px;
+  height: 20px;
+  color: #8A8A9A;
+}
+.icon-option.selected {
+  border-color: var(--c-primary);
+  background: var(--c-primary-bg);
+}
+.icon-option.selected svg {
+  color: var(--c-primary);
+}
+.icon-option:active {
+  transform: scale(0.92);
+}
+
+/* 确认弹窗 */
+.confirm-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(60, 79, 68, 0.5);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1100;
+  padding: 20px;
+}
+.confirm-overlay.active { display: flex; animation: fadeIn 0.2s; }
+.confirm-box {
+  background: var(--c-card);
+  border-radius: var(--radius);
+  padding: 24px 20px;
+  max-width: 320px;
+  width: 100%;
+  text-align: center;
+}
+.confirm-box .ctitle { font-size: 16px; font-weight: 600; margin-bottom: 8px; }
+.confirm-box .cdesc { font-size: 13px; color: var(--c-body-soft); line-height: 1.6; margin-bottom: 18px; }
+.confirm-box .cactions { display: flex; gap: 10px; }
+.confirm-box .cactions button { flex: 1; padding: 11px; border-radius: var(--radius-sm); font-size: 14px; font-weight: 500; min-height: 44px; }
+.btn-cancel { background: var(--c-card-soft); border: 1px solid var(--c-border); color: var(--c-body-soft); }
+.btn-confirm { background: var(--c-red); color: #fff; }
+.btn-confirm.safe { background: var(--c-primary); }
+
+/* Toast */
+.toast {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(60, 79, 68, 0.92);
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 24px;
+  font-size: 13px;
+  z-index: 2000;
+  opacity: 0;
+  transition: opacity 0.3s, transform 0.3s;
+  pointer-events: none;
+  white-space: nowrap;
+  max-width: 90vw;
+  text-align: center;
+}
+.toast.show { opacity: 1; transform: translateX(-50%) translateY(-4px); }
+
+/* 底部安全区 */
+.safe-bottom { height: env(safe-area-inset-bottom); }
+
+/* 空状态 */
+.empty-state {
+  text-align: center;
+  padding: 30px 20px;
+  color: var(--c-muted);
+}
+.empty-state svg { width: 40px; height: 40px; opacity: 0.4; margin-bottom: 8px; }
+.empty-state .etext { font-size: 13px; }
+
+/* ============ 响应式 ============ */
+@media (min-width: 768px) {
+  .main-container { padding: 24px 24px 60px; }
+  .app-header { padding: 24px 24px 0; }
+  .study-subjects { grid-template-columns: repeat(4, 1fr); }
+  .week-grid { gap: 8px; }
+  .week-cell { min-height: 80px; }
+  .modal-overlay { align-items: center; padding: 20px; }
+  .modal { border-radius: var(--radius); max-height: 80vh; }
+  @keyframes slideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+}
+
+@media (max-width: 380px) {
+  body { font-size: 14px; }
+  .header-title h1 { font-size: 18px; }
+  .countdown-info .days { font-size: 20px; }
+}
+</style>
+<script src="https://beacon.cdn.qq.com/sdk/4.5.9/beacon_web.min.js"></script>
+<script>
+(function(){
+  try{
+    var beacon=new BeaconAction({
+      appkey:'0WEB06U85YBSLJNL',
+      versionCode:'1.0.0',
+      channelID:'share',
+      delay:1000,
+      sessionDuration:30*60*1000,
+      isOversea:false,
+      needReportRqdEvent:false
+    });
+    beacon.onDirectUserAction('preview_page_view',{
+      'url':location.href,
+      'referrer':document.referrer,
+      'title':document.title,
+      'sandbox_id':'1592eced4d4148e793fc4c037bbb3bc7'
+    });
+  }catch(e){}
+})();
+</script></head>
+<body>
+
+<!-- ============ Header ============ -->
+<header class="app-header">
+  <div class="header-top">
+    <div class="header-title">
+      <h1>Free</h1>
+      <div class="subtitle" id="dateSubtitle"></div>
+    </div>
+    <div class="header-actions">
+      <button class="header-btn" onclick="exportData()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        导出
+      </button>
+      <button class="header-btn" onclick="document.getElementById('importInput').click()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+        导入
+      </button>
+      <input type="file" id="importInput" accept=".json" style="display:none" onchange="importData(event)">
+    </div>
+  </div>
+
+  <!-- 考公倒计时 -->
+  <div class="countdown-bar">
+    <div class="countdown-ring">
+      <svg viewBox="0 0 56 56">
+        <circle class="track" cx="28" cy="28" r="24"/>
+        <circle class="progress" id="countdownProgress" cx="28" cy="28" r="24" stroke-dasharray="150.8" stroke-dashoffset="0" transform="rotate(-90 28 28)"/>
+      </svg>
+    </div>
+    <div class="countdown-info">
+      <div class="label">距服务期结束还有</div>
+      <div class="days" id="countdownDays">— <span>天</span></div>
+      <div class="target" id="countdownTarget">服务期：2026.07.09 - 2031.07.09</div>
+    </div>
+    <button class="header-btn" onclick="openCountdownEdit()" style="align-self:center;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+    </button>
+  </div>
+
+  <!-- Tab 导航 -->
+  <nav class="tab-nav">
+    <button class="tab-btn active" data-tab="work" onclick="switchTab('work')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+      工作任务
+    </button>
+    <button class="tab-btn" data-tab="growth" onclick="switchTab('growth')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      成长打卡
+    </button>
+    <button class="tab-btn" data-tab="study" onclick="switchTab('study')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+      考公学习
+    </button>
+    <button class="tab-btn" data-tab="fun" onclick="switchTab('fun')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+      娱乐幸福
+    </button>
+  </nav>
+</header>
+
+<!-- ============ 主体 ============ -->
+<main class="main-container">
+
+  <!-- 备份提示 -->
+  <div class="backup-notice" id="backupNotice" style="display:none;">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+    <span id="backupNoticeText"></span>
+  </div>
+
+  <!-- 今天要处理 -->
+  <section class="today-section" id="todaySection">
+    <div class="section-title-row">
+      <div class="section-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        今天要处理
+        <span class="count-badge" id="todayCount">0</span>
+      </div>
+    </div>
+    <div class="today-list" id="todayList"></div>
+  </section>
+
+  <!-- ============ Tab: 工作任务 ============ -->
+  <div class="tab-panel active" id="panel-work">
+    <div class="card">
+      <div class="card-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        本周概览
+      </div>
+      <div class="week-grid" id="weekGrid"></div>
+      <div class="task-stats">
+        <div class="stat-pill"><div class="num" id="weekTotal">0</div><div class="lbl">本周任务</div></div>
+        <div class="stat-pill done"><div class="num" id="weekDone">0</div><div class="lbl">已完成</div></div>
+        <div class="stat-pill"><div class="num" id="weekRate">0%</div><div class="lbl">完成率</div></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        任务清单
+      </div>
+      <div class="input-row">
+        <input type="text" id="taskInput" placeholder="添加工作任务..." onkeydown="if(event.key==='Enter')addTask()">
+        <select id="taskPriority" style="flex:0 0 70px;">
+          <option value="p0">P0</option>
+          <option value="p1" selected>P1</option>
+          <option value="p2">P2</option>
+        </select>
+        <button class="btn-primary" onclick="addTask()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          添加
+        </button>
+      </div>
+      <div class="task-filters">
+        <button class="filter-btn active" data-filter="all" onclick="setTaskFilter('all')">全部</button>
+        <button class="filter-btn" data-filter="pending" onclick="setTaskFilter('pending')">待办</button>
+        <button class="filter-btn" data-filter="done" onclick="setTaskFilter('done')">已完成</button>
+        <button class="filter-btn" data-filter="overdue" onclick="setTaskFilter('overdue')">逾期</button>
+      </div>
+      <div class="task-list" id="taskList"></div>
+    </div>
+  </div>
+
+  <!-- ============ Tab: 成长打卡 ============ -->
+  <div class="tab-panel" id="panel-growth">
+    <!-- 智慧锦囊 -->
+    <div class="wisdom-card">
+      <div class="wlabel">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/></svg>
+        今日智慧锦囊
+      </div>
+      <div class="wtext" id="wisdomText"></div>
+      <div class="wsource" id="wisdomSource"></div>
+      <div class="wisdom-refresh" onclick="refreshWisdom()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+        换一条
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        每日成长打卡
+        <span class="right-action" onclick="openHabitModal()">+ 添加习惯</span>
+      </div>
+      <div class="growth-tabs">
+        <button class="growth-tab active body" data-growth="body" onclick="switchGrowth('body')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          身体
+        </button>
+        <button class="growth-tab mind" data-growth="mind" onclick="switchGrowth('mind')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a3 3 0 0 0-3 3v0a3 3 0 0 0-3 3v0a3 3 0 0 0-3 3v2a3 3 0 0 0 3 3v0a3 3 0 0 0 3 3v0a3 3 0 0 0 3 3v0a3 3 0 0 0 3-3v0a3 3 0 0 0 3-3v0a3 3 0 0 0 3-3v-2a3 3 0 0 0-3-3v0a3 3 0 0 0-3-3v0a3 3 0 0 0-3-3z"/></svg>
+          心灵
+        </button>
+        <button class="growth-tab brain" data-growth="brain" onclick="switchGrowth('brain')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.98-3A2.5 2.5 0 0 1 9.5 2Z"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-3A2.5 2.5 0 0 0 14.5 2Z"/></svg>
+          大脑
+        </button>
+      </div>
+      <div class="habit-list" id="habitList"></div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"/></svg>
+        本周打卡趋势
+      </div>
+      <div id="habitWeekChart"></div>
+    </div>
+  </div>
+
+  <!-- ============ Tab: 考公学习 ============ -->
+  <div class="tab-panel" id="panel-study">
+    <div class="card">
+      <div class="card-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        题库练习舱
+      </div>
+      <div style="font-size:12px;color:var(--c-muted);margin-bottom:12px;line-height:1.5;">点击下方科目卡片，直接进入做题模式。行测可答题判对错，申论/面试提供材料+范文+答题要点。</div>
+      <div class="study-subjects" id="studySubjects"></div>
+    </div>
+  </div>
+
+  <!-- ============ Tab: 娱乐幸福 ============ -->
+  <div class="tab-panel" id="panel-fun">
+    <div class="card">
+      <div class="card-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"/><line x1="7" y1="2" x2="7" y2="22"/><line x1="17" y1="2" x2="17" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="2" y1="7" x2="7" y2="7"/><line x1="2" y1="17" x2="7" y2="17"/><line x1="17" y1="17" x2="22" y2="17"/><line x1="17" y1="7" x2="22" y2="7"/></svg>
+        影视记录
+        <span class="right-action" onclick="openMediaModal()">+ 添加</span>
+      </div>
+      <div class="media-list" id="mediaList"></div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        幸福小事
+        <span class="right-action" onclick="openHappyModal()">+ 记录</span>
+      </div>
+      <div class="happiness-list" id="happyList"></div>
+    </div>
+  </div>
+
+</main>
+
+<!-- ============ 学习舱（全屏覆盖） ============ -->
+<div class="study-pod" id="studyPod">
+  <div class="pod-header">
+    <button class="pod-back" onclick="closeStudyPod()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    <div class="pod-title-wrap">
+      <div class="pod-title" id="podTitle"></div>
+      <div class="pod-progress" id="podProgress"></div>
+    </div>
+  </div>
+  <div class="pod-body" id="podBody"></div>
+</div>
+
+<!-- ============ 任务编辑弹窗 ============ -->
+<div class="modal-overlay" id="taskModal">
+  <div class="modal">
+    <div class="modal-header">
+      <div class="modal-title" id="taskModalTitle">添加任务</div>
+      <button class="modal-close" onclick="closeModal('taskModal')">×</button>
+    </div>
+    <input type="hidden" id="taskEditId">
+    <div class="form-group">
+      <label class="form-label">任务内容</label>
+      <input type="text" class="form-control" id="taskModalText" placeholder="输入任务内容...">
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label class="form-label">优先级</label>
+        <div class="priority-pills">
+          <button class="priority-pill p0" data-prio="p0" onclick="setModalPrio('p0')">P0 紧急</button>
+          <button class="priority-pill p1 active" data-prio="p1" onclick="setModalPrio('p1')">P1 重要</button>
+          <button class="priority-pill p2" data-prio="p2" onclick="setModalPrio('p2')">P2 一般</button>
+        </div>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label class="form-label">截止日期</label>
+        <input type="date" class="form-control" id="taskModalDue">
+      </div>
+      <div class="form-group">
+        <label class="form-label">类型</label>
+        <select class="form-control" id="taskModalType">
+          <option value="work">工作</option>
+          <option value="growth">成长</option>
+          <option value="study">学习</option>
+          <option value="life">生活</option>
+        </select>
+      </div>
+    </div>
+    <div class="modal-actions">
+      <button class="btn-ghost" onclick="closeModal('taskModal')">取消</button>
+      <button class="btn-primary" onclick="saveTaskModal()" style="flex:2;">保存</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============ 影视记录弹窗 ============ -->
+<div class="modal-overlay" id="mediaModal">
+  <div class="modal">
+    <div class="modal-header">
+      <div class="modal-title" id="mediaModalTitle">添加影视</div>
+      <button class="modal-close" onclick="closeModal('mediaModal')">×</button>
+    </div>
+    <input type="hidden" id="mediaEditId">
+    <div class="form-group">
+      <label class="form-label">作品名称</label>
+      <input type="text" class="form-control" id="mediaTitle" placeholder="如：觉醒年代">
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label class="form-label">类型</label>
+        <select class="form-control" id="mediaType">
+          <option value="movie">电影</option>
+          <option value="tv">电视剧</option>
+          <option value="doc">纪录片</option>
+          <option value="book">书</option>
+          <option value="other">其他</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">观看日期</label>
+        <input type="date" class="form-control" id="mediaDate">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="form-label">评分</label>
+      <div class="star-rating" id="starRating">
+        <button class="star-btn" data-star="1" onclick="setStar(1)"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></button>
+        <button class="star-btn" data-star="2" onclick="setStar(2)"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></button>
+        <button class="star-btn" data-star="3" onclick="setStar(3)"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></button>
+        <button class="star-btn" data-star="4" onclick="setStar(4)"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></button>
+        <button class="star-btn" data-star="5" onclick="setStar(5)"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></button>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="form-label">观后感</label>
+      <textarea class="form-control" id="mediaNote" placeholder="一句话感受..."></textarea>
+    </div>
+    <div class="modal-actions">
+      <button class="btn-ghost" onclick="closeModal('mediaModal')">取消</button>
+      <button class="btn-primary" onclick="saveMedia()" style="flex:2;">保存</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============ 幸福小事弹窗 ============ -->
+<div class="modal-overlay" id="happyModal">
+  <div class="modal">
+    <div class="modal-header">
+      <div class="modal-title" id="happyModalTitle">记录幸福小事</div>
+      <button class="modal-close" onclick="closeModal('happyModal')">×</button>
+    </div>
+    <div class="form-group">
+      <label class="form-label">什么让你感到幸福？</label>
+      <textarea class="form-control" id="happyText" placeholder="如：今天午餐和同事聊天很开心 / 下班路上看到好看的晚霞..." style="min-height:100px;"></textarea>
+    </div>
+    <div class="form-group">
+      <label class="form-label">日期</label>
+      <input type="date" class="form-control" id="happyDate">
+    </div>
+    <div class="modal-actions">
+      <button class="btn-ghost" onclick="closeModal('happyModal')">取消</button>
+      <button class="btn-primary" onclick="saveHappy()" style="flex:2;">保存</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============ 倒计时编辑弹窗 ============ -->
+<div class="modal-overlay" id="countdownModal">
+  <div class="modal">
+    <div class="modal-header">
+      <div class="modal-title">设置服务期结束日期</div>
+      <button class="modal-close" onclick="closeModal('countdownModal')">×</button>
+    </div>
+    <div class="form-group">
+      <label class="form-label">目标日期</label>
+      <input type="date" class="form-control" id="countdownDateInput">
+    </div>
+    <div class="form-group">
+      <label class="form-label">目标名称</label>
+      <input type="text" class="form-control" id="countdownLabelInput" placeholder="如：五年后考公">
+    </div>
+    <div class="modal-actions">
+      <button class="btn-ghost" onclick="closeModal('countdownModal')">取消</button>
+      <button class="btn-primary" onclick="saveCountdown()" style="flex:2;">保存</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============ 添加习惯弹窗 ============ -->
+<div class="modal-overlay" id="habitModal">
+  <div class="modal">
+    <div class="modal-header">
+      <div class="modal-title">添加习惯</div>
+      <button class="modal-close" onclick="closeModal('habitModal')">×</button>
+    </div>
+    <div class="form-group">
+      <label class="form-label">习惯名称</label>
+      <input type="text" class="form-control" id="habitNameInput" placeholder="如：早睡早起 / 冥想">
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label class="form-label">分类</label>
+        <select class="form-control" id="habitCategoryInput">
+          <option value="body">身体</option>
+          <option value="mind">心灵</option>
+          <option value="brain">大脑</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">频率</label>
+        <select class="form-control" id="habitTargetInput">
+          <option value="每天">每天</option>
+          <option value="工作日">工作日</option>
+          <option value="每周3次">每周3次</option>
+          <option value="每周1次">每周1次</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="form-label">图标</label>
+      <div class="icon-picker" id="habitIconPicker"></div>
+    </div>
+    <div class="modal-actions">
+      <button class="btn-ghost" onclick="closeModal('habitModal')">取消</button>
+      <button class="btn-primary" onclick="saveHabit()" style="flex:2;">添加</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============ 确认弹窗 ============ -->
+<div class="confirm-overlay" id="confirmOverlay">
+  <div class="confirm-box">
+    <div class="ctitle" id="confirmTitle">确认操作</div>
+    <div class="cdesc" id="confirmDesc"></div>
+    <div class="cactions">
+      <button class="btn-cancel" onclick="closeConfirm()">取消</button>
+      <button class="btn-confirm" id="confirmBtn" onclick="execConfirm()">确认</button>
+    </div>
+  </div>
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<script>
+// ============================================================
+// 数据层
+// ============================================================
+const STORE_PREFIX = 'wb_growth_';
+const KEYS = {
+  tasks: STORE_PREFIX + 'tasks',
+  habits: STORE_PREFIX + 'habits',
+  habitRecords: STORE_PREFIX + 'habitRecords',
+  studySubject: STORE_PREFIX + 'studySubject',
+  media: STORE_PREFIX + 'media',
+  happy: STORE_PREFIX + 'happy',
+  countdown: STORE_PREFIX + 'countdown',
+  wisdomIndex: STORE_PREFIX + 'wisdomIndex',
+  currentGrowth: STORE_PREFIX + 'currentGrowth',
+  currentStudy: STORE_PREFIX + 'currentStudy',
+  studyRecords: STORE_PREFIX + 'studyRecords',
+  dailyPointers: STORE_PREFIX + 'dailyPointers',
+  initialized: STORE_PREFIX + 'initialized'
+};
+
+function load(key, fallback) {
+  try {
+    const v = localStorage.getItem(key);
+    return v ? JSON.parse(v) : fallback;
+  } catch(e) { return fallback; }
+}
+function save(key, val) {
+  try { localStorage.setItem(key, JSON.stringify(val)); } catch(e) { showToast('存储失败，可能空间不足'); }
+}
+function uid() { return Date.now().toString(36) + Math.random().toString(36).slice(2,6); }
+
+// 日期工具
+function todayStr() {
+  const d = new Date();
+  return localDateStr(d);
+}
+function dateStr(d) { return localDateStr(d); }
+function localDateStr(d) {
+  const y = d.getFullYear();
+  const m = String(d.getMonth() + 1).padStart(2, '0');
+  const day = String(d.getDate()).padStart(2, '0');
+  return `${y}-${m}-${day}`;
+}
+function parseDate(s) { const [y,m,d] = s.split('-').map(Number); return new Date(y, m-1, d); }
+function daysBetween(a, b) { return Math.round((b - a) / 86400000); }
+function fmtDate(s) {
+  if (!s) return '';
+  const [y,m,d] = s.split('-');
+  return `${m}月${d}日`;
+}
+function weekdayMon(d) {
+  const w = d.getDay();
+  return w === 0 ? 6 : w - 1;
+}
+function getWeekRange(d) {
+  const monday = new Date(d);
+  monday.setDate(d.getDate() - weekdayMon(d));
+  monday.setHours(0,0,0,0);
+  const sunday = new Date(monday);
+  sunday.setDate(monday.getDate() + 6);
+  return [monday, sunday];
+}
+
+// ============================================================
+// 智慧锦囊库
+// ============================================================
+const WISDOMS = [
+  { text: "拒绝内耗的第一步：分清「我能控制的」和「我不能控制的」。能控制的去行动，不能控制的随它去。", source: "斯多葛哲学" },
+  { text: "职场里，被看见比埋头干更重要。定期同步进度，让你的努力有迹可循。", source: "职场指南" },
+  { text: "亲密关系中，争吵时说「我感到…」而不是「你总是…」，能避免 80% 的冲突升级。", source: "非暴力沟通" },
+  { text: "早睡不是浪费醒着的时间，而是投资明天的精力和判断力。", source: "睡眠革命" },
+  { text: "喝水最好的节奏：起床一杯、饭前一杯、下午三点一杯。别等渴了才喝。", source: "健康习惯" },
+  { text: "「不」是一个完整的句子。你不需要为每次拒绝都编一个理由。", source: "边界感练习" },
+  { text: "口头表达能力 = 逻辑 + 练习。每天复述一段材料，3 个月就能看到质变。", source: "表达力训练" },
+  { text: "事业单位五年不是「被困住」，而是「攒底牌」。用这段时间把考公的硬实力磨出来。", source: "长期主义" },
+  { text: "人际关系不是讨好，而是价值交换。先让自己变强，关系自然来。", source: "社交本质" },
+  { text: "运动不一定要去健身房。每天 20 分钟居家训练，坚持比强度更重要。", source: "健身常识" },
+  { text: "焦虑的时候，去做具体的事。洗碗、整理桌面、走 10 分钟——行动是焦虑的解药。", source: "心理学小技巧" },
+  { text: "英语口语练的不是「词汇量」，是「敢开口」。每天自言自语 5 分钟，比背单词管用。", source: "语言学习" },
+  { text: "申论的本质是「读懂材料 + 规范表达」。多看人民日报评论版，语感自然来。", source: "备考经验" },
+  { text: "行测提速的核心：会做的快速做，不会的果断猜。别在一道题上耗超过 90 秒。", source: "行测策略" },
+  { text: "面试答题「三点式」：第一、第二、第三。结构清晰，分就不会低。", source: "面试技巧" },
+  { text: "幸福不是大事，是小事的叠加。今天记下一件让你嘴角上扬的小事。", source: "积极心理学" },
+  { text: "别拿别人的进度条量自己的人生。五年后考公是马拉松，不是百米冲刺。", source: "长期主义" },
+  { text: "排便规律的关键：固定时间、足量饮水、多吃纤维。身体通畅，心情也通畅。", source: "健康常识" },
+  { text: "职场中，邮件和消息「先说结论再展开」。对方的时间比你想象的更宝贵。", source: "职场沟通" },
+  { text: "亲密关系需要「主动维护」。每周留一段不看手机的时间给对方，比任何礼物都珍贵。", source: "关系经营" }
+];
+
+// ============================================================
+// 默认习惯配置
+// ============================================================
+const DEFAULT_HABIT_IDS = ['h_read', 'h_english', 'h_gongkao'];
+
+const DEFAULT_HABITS = [
+  // 身体和心灵不预置，由用户自己添加
+  // 大脑保留学习类入口习惯，用户也可以删除
+  { id: 'h_read', name: '阅读长材料并复述', category: 'brain', icon: 'book', target: '工作日' },
+  { id: 'h_english', name: '英语口语练习', category: 'brain', icon: 'globe', target: '每天' },
+  { id: 'h_gongkao', name: '考公学习（行测/申论）', category: 'brain', icon: 'study', target: '每天' }
+];
+
+// 科目配置（考公学习台只展示 3 个科目）
+const STUDY_SUBJECTS = [
+  { id: 'xingce', name: '行测', color: '#88A8C0', count: 10 },
+  { id: 'shenlun', name: '申论', color: '#A89BC0', count: 3 },
+  { id: 'mianshi', name: '面试', color: '#D4A574', count: 8 }
+];
+
+// 成长打卡 → 学习舱 跳转映射
+const GROWTH_STUDY_LINKS = {
+  h_read: 'readexpress',
+  h_english: 'english',
+  h_gongkao: '__study_tab__'
+};
+
+// 科目全称（学习舱标题用）
+const SUBJECT_LABELS = {
+  xingce: '行测', shenlun: '申论', mianshi: '面试',
+  english: '英语口语', readexpress: '阅读复述'
+};
+
+// ============================================================
+// 学习舱题库（内置真实练习材料）
+// ============================================================
+const STUDY_BANK = {
+  // ---- 行测 10 题 ----
+  xingce: [
+    {
+      id: 'xc1', type: 'choice', category: '资料分析', title: 'GDP增长率计算',
+      material: '2023年某省实现地区生产总值（GDP）6.2万亿元，2022年为5.8万亿元。其中，第一产业增加值0.3万亿元，第二产业增加值2.7万亿元，第三产业增加值3.2万亿元。',
+      question: '2023年该省GDP同比增长率约为：',
+      options: ['5.2%', '6.9%', '7.5%', '8.1%'],
+      answer: 1,
+      analysis: '增长率 = (6.2-5.8)/5.8 ≈ 0.4/5.8 ≈ 6.9%。选B。'
+    },
+    {
+      id: 'xc2', type: 'choice', category: '资料分析', title: '比重计算',
+      material: '2023年某省实现地区生产总值6.2万亿元。其中第三产业增加值3.2万亿元。',
+      question: '2023年该省第三产业增加值占GDP的比重约为：',
+      options: ['41.9%', '48.4%', '51.6%', '58.1%'],
+      answer: 2,
+      analysis: '比重 = 3.2/6.2 ≈ 51.6%。选C。'
+    },
+    {
+      id: 'xc3', type: 'choice', category: '资料分析', title: '增速比较',
+      material: '2023年某省三次产业增加值增速分别为：第一产业3.5%，第二产业5.8%，第三产业8.2%。',
+      question: '下列说法正确的是：',
+      options: ['第一产业增速最快', '第二产业增速最快', '第三产业增速最快', '三者增速相同'],
+      answer: 2,
+      analysis: '8.2% > 5.8% > 3.5%，第三产业增速最快。选C。'
+    },
+    {
+      id: 'xc4', type: 'choice', category: '资料分析', title: '同比与环比',
+      material: '某市2023年4月社会消费品零售总额320亿元，3月为300亿元，2022年4月为280亿元。',
+      question: '该市2023年4月社会消费品零售总额同比增速为：',
+      options: ['6.7%', '10.3%', '14.3%', '20.0%'],
+      answer: 2,
+      analysis: '同比 = (320-280)/280 ≈ 14.3%。选C。注意同比是和去年同期比，环比是和上月比。'
+    },
+    {
+      id: 'xc5', type: 'choice', category: '言语理解', title: '主旨概括',
+      question: '随着数字经济的快速发展，新就业形态劳动者规模持续扩大。灵活就业在拓宽就业渠道、增强就业弹性等方面发挥了积极作用。但同时，新就业形态劳动者在社会保障、劳动权益维护等方面也面临一些新问题，亟需完善相关制度。这段文字主要说明：',
+      options: ['数字经济带来了更多就业机会', '灵活就业完全取代了传统就业', '新就业形态既有积极作用也面临问题', '应该限制新就业形态的发展'],
+      answer: 2,
+      analysis: '文段先讲积极作用，后用"但"转折指出问题，整体是辩证看待。选C。'
+    },
+    {
+      id: 'xc6', type: 'choice', category: '言语理解', title: '语句填空',
+      question: '乡村振兴，人才是关键。________，才能让更多优秀人才愿意来、留得住、干得好。填入划横线部分最恰当的是：',
+      options: ['只有提高乡村待遇', '只有完善人才引进和激励机制', '只要加大宣传力度', '只要建设美丽乡村'],
+      answer: 1,
+      analysis: '后文"愿意来、留得住、干得好"需要系统性的机制保障，"完善人才引进和激励机制"最全面。选B。'
+    },
+    {
+      id: 'xc7', type: 'choice', category: '言语理解', title: '细节判断',
+      question: '下列关于碳达峰、碳中和的表述，不正确的是：',
+      options: ['碳达峰是指二氧化碳排放量达到历史最高值后逐步下降', '碳中和是指通过植树造林等方式抵消碳排放', '我国目标是2030年前实现碳达峰', '碳中和意味着二氧化碳零排放'],
+      answer: 3,
+      analysis: '碳中和不是零排放，而是"排放量=吸收量"的平衡状态。选D。'
+    },
+    {
+      id: 'xc8', type: 'choice', category: '判断推理', title: '类比推理',
+      question: '医生：医院 对于（ ）相当于 教师：（ ）',
+      options: ['病人；学生', '手术；讲课', '职业；学校', '诊断；教室'],
+      answer: 2,
+      analysis: '医生是一种职业，在医院工作；教师是一种职业，在学校工作。前者是职业：场所的对应。选C。'
+    },
+    {
+      id: 'xc9', type: 'choice', category: '判断推理', title: '逻辑判断',
+      question: '所有参加培训的员工都通过了考核。小李没有参加培训。由此可以推出：',
+      options: ['小李没有通过考核', '小李通过了考核', '小李可能通过也可能没通过考核', '通过考核的都是参加培训的'],
+      answer: 2,
+      analysis: '"参加培训→通过考核"是充分条件，没参加培训是否通过考核无法确定。选C。'
+    },
+    {
+      id: 'xc10', type: 'choice', category: '判断推理', title: '图形推理',
+      question: '一组图形按规律排列，已知前三个图形分别有1、3、6个交点，第四个图形的交点数应为：',
+      options: ['8', '10', '12', '15'],
+      answer: 1,
+      analysis: '规律为1、3、6、10……即相邻差值为2、3、4递增。选B。'
+    }
+  ],
+
+  // ---- 申论 3 篇 ----
+  shenlun: [
+    {
+      id: 'sl1', type: 'essay', category: '大作文', title: '以人民为中心',
+      material: '给定材料：党的二十大报告指出，江山就是人民，人民就是江山。中国共产党领导人民打江山、守江山，守的是人民的心。治国有常，利民为本。为民造福是立党为公、执政为民的本质要求。必须坚持在发展中保障和改善民生，鼓励共同奋斗创造美好生活，不断实现人民对美好生活的向往。',
+      points: [
+        '①论点：坚持以人民为中心，是一切工作的出发点和落脚点',
+        '②分论点一：以人民为中心，要始终把群众利益放在首位',
+        '③分论点二：以人民为中心，要在发展中保障改善民生',
+        '④分论点三：以人民为中心，要依靠人民群众的智慧和力量',
+        '⑤结尾：江山就是人民，人民就是江山，新征程上始终与人民同行'
+      ],
+      essay: '以人民为中心 走好新时代赶考之路\n\n江山就是人民，人民就是江山。党的二十大报告再次强调了以人民为中心的发展思想，这既是党的初心使命的集中体现，也是新时代一切工作的根本遵循。迈步新征程，我们必须始终把人民放在心中最高位置，走好新时代的赶考之路。\n\n以人民为中心，要始终把群众利益放在首位。"利民之事，丝发必兴；厉民之事，毫末必去。"群众的身边事、烦心事、揪心事，看似细小，却关乎民心向背。从脱贫攻坚到乡村振兴，从教育公平到医疗保障，每一项政策的落地都要以群众满意不满意作为检验标准。只有真正把群众利益扛在肩上，才能赢得人民的信任和支持。\n\n以人民为中心，要在发展中保障和改善民生。发展是第一要务，但发展的最终目的是让人民过上好日子。要聚焦就业、教育、医疗、养老等民生领域，一件接着一件办，一年接着一年干，让发展成果更多更公平惠及全体人民。同时，要鼓励共同奋斗，激发全社会的创造活力，在高质量发展中创造高品质生活。\n\n以人民为中心，要依靠人民群众的智慧和力量。人民群众是历史的创造者，是真正的英雄。无论是基层治理的创新实践，还是重大改革的推进落实，都离不开人民群众的参与和支持。要走好新时代群众路线，问计于民、问需于民，让每一项决策都建立在民意基础之上。\n\n治国有常，利民为本。新征程上，让我们始终坚持以人民为中心，与人民同呼吸、共命运、心连心，为创造美好生活而不懈奋斗。'
+    },
+    {
+      id: 'sl2', type: 'essay', category: '大作文', title: '全面推进乡村振兴',
+      material: '给定材料：民族要复兴，乡村必振兴。党的二十大报告提出，全面推进乡村振兴，坚持农业农村优先发展，巩固拓展脱贫攻坚成果，加快建设农业强国，扎实推动乡村产业、人才、文化、生态、组织振兴。',
+      points: [
+        '①论点：全面推进乡村振兴，是新时代新征程的重大任务',
+        '②分论点一：产业振兴是乡村振兴的重中之重',
+        '③分论点二：人才振兴是乡村振兴的关键支撑',
+        '④分论点三：组织振兴是乡村振兴的根本保证',
+        '⑤结尾：凝聚各方力量，绘就乡村振兴壮美画卷'
+      ],
+      essay: '凝聚振兴合力 绘就乡村新卷\n\n民族要复兴，乡村必振兴。全面推进乡村振兴，是以习近平同志为核心的党中央着眼党和国家事业全局作出的重大战略决策，是新时代做好"三农"工作的总抓手。站在新的历史起点，我们必须凝聚各方力量，绘就乡村振兴壮美画卷。\n\n产业振兴是乡村振兴的重中之重。产业兴旺是解决农村一切问题的前提。要立足本地资源禀赋，发展特色优势产业，推动农村一二三产业融合发展。从特色种植养殖到乡村旅游，从农产品加工到农村电商，让产业成为带动农民增收致富的强劲引擎。只有产业旺起来，乡村才能活起来。\n\n人才振兴是乡村振兴的关键支撑。乡村振兴，关键在人。要畅通人才下乡通道，吸引高校毕业生、退役军人、返乡农民工等各类人才投身乡村建设。同时，要培育新型职业农民，提升本土人才的创业创新能力，让愿意留在乡村、建设家乡的人留得安心、干得有劲。\n\n组织振兴是乡村振兴的根本保证。农村要发展，农民要致富，关键靠支部。要加强农村基层党组织建设，选优配强村"两委"班子，发挥党员先锋模范作用。健全党组织领导的自治、法治、德治相结合的乡村治理体系，让农村既充满活力又和谐有序。\n\n乡村兴则国家兴。让我们以更大的决心、更明确的目标、更有力的举措，全面推进乡村振兴，让农业成为有奔头的产业，让农民成为有吸引力的职业，让农村成为安居乐业的美丽家园。'
+    },
+    {
+      id: 'sl3', type: 'essay', category: '大作文', title: '推动高质量发展',
+      material: '给定材料：高质量发展是全面建设社会主义现代化国家的首要任务。发展是党执政兴国的第一要务。没有坚实的物质技术基础，就不可能全面建成社会主义现代化强国。必须完整、准确、全面贯彻新发展理念，坚持社会主义市场经济改革方向，坚持高水平对外开放，加快构建以国内大循环为主体、国内国际双循环相互促进的新发展格局。',
+      points: [
+        '①论点：高质量发展是新时代发展的鲜明主题',
+        '②分论点一：推动高质量发展，必须贯彻新发展理念',
+        '③分论点二：推动高质量发展，必须坚持创新驱动',
+        '④分论点三：推动高质量发展，必须深化改革开放',
+        '⑤结尾：以高质量发展赢得未来'
+      ],
+      essay: '以高质量发展赢得中国之未来\n\n发展是硬道理，发展必须是高质量发展。党的二十大报告明确指出，高质量发展是全面建设社会主义现代化国家的首要任务。站在新的历史方位，我们必须把发展质量摆在更加突出的位置，以高质量发展赢得中国之未来。\n\n推动高质量发展，必须完整、准确、全面贯彻新发展理念。创新、协调、绿色、开放、共享的新发展理念，是相互贯通、彼此促进的整体。要把新发展理念贯穿发展全过程和各领域，让创新成为第一动力、协调成为内生特点、绿色成为普遍形态、开放成为必由之路、共享成为根本目的，推动发展从"有没有"转向"好不好"。\n\n推动高质量发展，必须坚持创新驱动。创新是引领发展的第一动力。要把科技自立自强作为国家发展的战略支撑，打好关键核心技术攻坚战。从"卡脖子"技术突破到基础研究加强，从创新主体培育到创新生态优化，让创新成为驱动高质量发展的核心引擎。\n\n推动高质量发展，必须深化改革开放。改革开放是决定当代中国命运的关键一招。要构建高水平社会主义市场经济体制，建设全国统一大市场。同时，推进高水平对外开放，稳步扩大规则、规制、管理、标准等制度型开放，在开放合作中塑造发展新优势。\n\n道阻且长，行则将至。让我们坚定不移走高质量发展之路，以新发展理念为指引，以创新驱动为引擎，以改革开放为动力，在全面建设社会主义现代化国家的新征程上创造新的更大奇迹。'
+    }
+  ],
+
+  // ---- 面试 8 题 ----
+  mianshi: [
+    {
+      id: 'ms1', type: 'qa', category: '综合分析', title: '如何看待"躺平"现象',
+      question: '近年来，"躺平"一词在网络流行，部分年轻人选择降低欲望、减少奋斗。对此，你怎么看？',
+      framework: '破题表态 → 分析原因（多维） → 提出对策 → 总结升华',
+      points: [
+        '①表态：理解部分年轻人的压力，但不赞同消极"躺平"',
+        '②原因一：就业压力大、生活成本高，部分人产生无力感',
+        '③原因二：社会评价标准单一，容易产生焦虑和内耗',
+        '④原因三：个别单位晋升机制不完善，努力与回报不成正比',
+        '⑤对策一：个人要调整心态，拒绝内耗，找到适合自己的节奏',
+        '⑥对策二：社会要营造多元包容的评价氛围，拓宽成才通道',
+        '⑦对策三：完善社会保障，让奋斗者有保障、有奔头',
+        '⑧升华：奋斗是青春最亮丽的底色，在奋斗中实现人生价值'
+      ],
+      reference: '各位考官，关于"躺平"现象，我的看法如下。\n\n第一，我对这一现象既理解又不赞同。理解的是，当下年轻人在就业、住房等方面确实面临不小压力，偶尔产生疲惫感是人之常情。但不赞同的是，消极"躺平"不是解决问题的办法，长期躺平只会让自己错失成长机会。\n\n第二，这一现象背后有多方面原因。从个人看，部分年轻人在激烈竞争中产生了无力感和焦虑感；从社会看，评价标准有时过于单一，"成功"被简单等同于高收入、高职位；从制度层面看，个别单位晋升通道不够畅通，努力与回报不完全匹配。\n\n第三，解决这个问题需要多方合力。个人层面，要学会调整心态，拒绝精神内耗，找到适合自己的节奏和方向，一步一个脚印地积累。社会层面，要营造多元包容的氛围，让不同选择都得到尊重。制度层面，要完善社会保障体系，畅通上升通道，让每一个奋斗者都能看到希望。\n\n最后我想说，奋斗是青春最亮丽的底色。作为新时代的青年，我们既要正视压力，也要保持定力，在脚踏实地的奋斗中实现自己的人生价值。回答完毕。'
+    },
+    {
+      id: 'ms2', type: 'qa', category: '综合分析', title: '短视频对青少年的影响',
+      question: '如今短视频深受青少年喜爱，但也引发了沉迷、信息碎片化等问题。对此你怎么看？',
+      framework: '辩证看待 → 正面价值 → 负面影响 → 对策建议 → 总结',
+      points: [
+        '①表态：辩证看待，既要看到积极面也要正视问题',
+        '②正面：短视频是获取信息、开阔视野的新渠道',
+        '③负面一：沉迷影响学习和身心健康',
+        '④负面二：碎片化信息削弱深度思考能力',
+        '⑤对策一：平台加强内容审核和防沉迷机制',
+        '⑥对策二：学校家庭引导青少年合理使用',
+        '⑦对策三：青少年自身提升媒介素养',
+        '⑧总结：让短视频成为成长的助力而非阻力'
+      ],
+      reference: '各位考官，关于短视频对青少年的影响，我持辩证看待的态度。\n\n一方面，短视频有其积极价值。它以生动直观的形式传播知识，让青少年可以足不出户了解大千世界，一些优质科普类、文化类短视频确实起到了开阔视野的作用。\n\n另一方面，也要正视其带来的问题。一是沉迷风险，短视频的算法推荐容易让人"停不下来"，挤占学习和运动时间。二是信息碎片化，长期接收碎片化信息会削弱青少年的深度阅读和系统思考能力。三是个别内容存在不良导向，影响青少年价值观形成。\n\n对此，我认为需要多方协同。第一，平台要压实主体责任，完善青少年模式，加强内容审核，用技术手段限制使用时长。第二，学校和 family 要加强引导，帮助青少年建立健康的媒介使用习惯，培养线下兴趣爱好。第三，青少年自身要提升媒介素养，学会辨别信息质量，做短视频的主人而非奴隶。\n\n总之，短视频是工具，关键在于如何使用。让短视频成为青少年成长的助力，需要我们共同努力。回答完毕。'
+    },
+    {
+      id: 'ms3', type: 'qa', category: '综合分析', title: '乡村振兴中的人才流失',
+      question: '乡村振兴战略实施以来，农村人才流失问题依然突出。对此你怎么看？',
+      framework: '表态 → 分析危害 → 分析原因 → 提出对策 → 总结',
+      points: [
+        '①表态：人才流失是乡村振兴的痛点，亟待解决',
+        '②危害：制约产业发展、影响基层治理、加剧空心化',
+        '③原因一：农村发展机会少、收入低',
+        '④原因二：公共服务配套不完善',
+        '⑤原因三：人才引进机制不健全',
+        '⑥对策一：发展特色产业创造就业岗位',
+        '⑦对策二：完善教育医疗等公共服务',
+        '⑧对策三：出台人才回流激励政策'
+      ],
+      reference: '各位考官，乡村振兴关键在人，农村人才流失问题确实令人忧心。\n\n这一问题的危害是多方面的。产业上，缺乏人才就难以发展特色经济；治理上，基层干部队伍青黄不接；社会上，农村"空心化"加剧，留守问题突出。\n\n究其原因，一是农村发展机会相对有限，收入水平低于城市；二是教育、医疗等公共服务配套不够完善；三是人才引进和留存机制还不够健全，"引不来、留不住"的问题并存。\n\n解决这一问题，我认为要从以下几方面着手。第一，产业留人。大力发展乡村特色产业，让人才在农村有事干、有钱赚。第二，服务留人。补齐农村教育、医疗、养老等公共服务短板，让人才在农村生活安心。第三，政策留人。出台更有力的人才回流激励政策，在创业扶持、住房保障、子女入学等方面给予倾斜。同时，也要注重培育本土人才，激发"新农人"的活力。\n\n总之，让人才愿意来、留得住、干得好，乡村振兴才有源源不断的动力。回答完毕。'
+    },
+    {
+      id: 'ms4', type: 'qa', category: '人际沟通', title: '与领导意见不一致',
+      question: '如果你的直属领导安排了一项你认为不太合理的工作，你会怎么处理？',
+      framework: '态度定位 → 沟通方式 → 执行原则 → 反思总结',
+      points: [
+        '①态度：尊重领导，但也要有自己的专业判断',
+        '②第一步：换位思考，理解领导安排的意图和全局考量',
+        '③第二步：选择合适时机，委婉表达自己的看法和建议',
+        '④第三步：如果领导仍坚持，坚决执行，在执行中优化',
+        '⑤原则：不在公开场合质疑，不消极怠工',
+        '⑥反思：事后复盘，提升自己的认知和沟通能力'
+      ],
+      reference: '各位考官，遇到这种情况，我会这样处理。\n\n首先，我会调整心态。领导站得更高、看得更全，我认为"不合理"可能是由于我了解的信息不够全面。所以第一步是换位思考，试着从领导的角度理解这项安排的意图。\n\n其次，如果经过认真思考，我仍然觉得存在明显问题，我会选择一个合适的时机，以请教的口吻向领导汇报。我会先表达对任务的理解，然后委婉地提出自己的顾虑和改进建议，供领导参考。注意方式方法，绝不在公开场合质疑领导。\n\n再次，如果领导听取了我的建议后仍然坚持原方案，我会坚决服从、全力执行。在执行过程中，我会密切关注进展，及时发现问题并向领导汇报，在职责范围内灵活调整，把风险降到最低。\n\n最后，事后我会进行复盘反思：是自己的认知有偏差，还是沟通方式有待改进？通过这样的积累，不断提升自己的专业判断力和沟通能力。回答完毕。'
+    },
+    {
+      id: 'ms5', type: 'qa', category: '人际沟通', title: '同事不配合工作',
+      question: '你负责一项跨部门协作任务，但一位同事总是以各种理由推诿不配合，你怎么办？',
+      framework: '分析原因 → 主动沟通 → 寻求支持 → 总结改进',
+      points: [
+        '①第一步：自我反思，确认任务分工和沟通方式是否有问题',
+        '②第二步：私下与该同事沟通，了解真实困难和顾虑',
+        '③第三步：换位思考，看能否调整分工或提供支持',
+        '④第四步：如仍无改善，向共同上级客观汇报，寻求协调',
+        '⑤原则：对事不对人，不把矛盾扩大化',
+        '⑥改进：完善协作机制，明确责任和时间节点'
+      ],
+      reference: '各位考官，遇到同事不配合的情况，我会这样处理。\n\n第一步，自我反思。我会先检视自己：任务分工是否清晰？沟通方式是否恰当？时间要求是否合理？排除自身因素后再分析对方原因。\n\n第二步，主动沟通。我会找一个轻松的场合，私下与这位同事交流，真诚地了解他的真实想法和困难。也许他手头有更紧急的任务，也许对任务的理解有偏差，也许需要我提供一些支持。通过沟通消除误解。\n\n第三步，灵活调整。如果对方确实有困难，在不影响整体进度的情况下，我可以适当调整分工，或者提供力所能及的帮助，共同推进任务。\n\n第四步，寻求支持。如果经过多次沟通仍无改善，且已经影响任务推进，我会向共同上级客观汇报情况，说明我已做的努力，请上级协调。汇报时对事不对人，不把矛盾扩大化。\n\n最后，任务完成后，我会总结经验，建议完善跨部门协作机制，明确各方责任、时间节点和沟通方式，减少类似问题的发生。回答完毕。'
+    },
+    {
+      id: 'ms6', type: 'qa', category: '应急应变', title: '群众办事情绪激动',
+      question: '一位群众来办事，因为材料不全无法办理，情绪非常激动，甚至在大厅大声吵闹。你作为工作人员怎么处理？',
+      framework: '控制局面 → 倾听安抚 → 解释引导 → 后续跟进',
+      points: [
+        '①第一步：迅速上前，引导到安静区域，避免影响其他群众',
+        '②第二步：倒杯水，倾听诉求，让群众把情绪发泄出来',
+        '③第三步：共情理解，表示"我理解您的着急"',
+        '④第四步：耐心解释政策要求和材料清单',
+        '⑤第五步：提供解决方案——一次性告知单、容缺受理等',
+        '⑥第六步：如涉及特殊困难，记录并向上级反映',
+        '⑦原则：不与群众争吵，不推诿责任'
+      ],
+      reference: '各位考官，面对这种情况，我会冷静处理。\n\n第一步，迅速控制局面。我会立即上前，以温和的态度将这位群众引导到等候区或单独房间，避免影响大厅其他群众办事。同时倒一杯水，请他坐下。\n\n第二步，认真倾听。我会耐心听他把诉求和不满讲完，不急于辩解。很多时候群众激动只是因为觉得"没人听他说话"，倾听本身就是一种安抚。\n\n第三步，共情安抚。我会真诚地说："我非常理解您的着急，大老远跑来办不成确实让人心烦。"让群众感受到我站在他这一边。\n\n第四步，解释引导。等群众情绪平复后，我会耐心解释政策要求，说明每一项材料的作用，让群众理解不是我们故意刁难。同时，我会提供一份"一次性告知单"，把需要补充的材料列清楚，避免群众多跑腿。\n\n第五步，灵活处理。如果符合"容缺受理"条件，我会先办理核心事项，让群众后续补齐材料。如果群众有特殊困难，我会做好记录，向上级反映，看能否提供绿色通道或帮办代办服务。\n\n总之，面对群众的情绪，我们要将心比心、以心换心，既要坚持原则，也要体现温度。回答完毕。'
+    },
+    {
+      id: 'ms7', type: 'qa', category: '应急应变', title: '会议前设备故障',
+      question: '你负责筹备一场重要会议，会议开始前10分钟，投影设备突然出现故障无法使用。你怎么办？',
+      framework: '冷静应对 → 应急方案 → 沟通协调 → 事后总结',
+      points: [
+        '①第一步：冷静，立即启动应急预案',
+        '②第二步：安排技术人员紧急抢修，同时准备替代方案',
+        '③第三步：替代方案——更换会议室/使用备用设备/打印纸质材料',
+        '④第四步：向领导简要汇报情况和应对措施',
+        '⑤第五步：安抚参会人员，做好会前引导',
+        '⑥第六步：会后复盘，完善设备检查和应急预案',
+        '⑦原则：不影响会议正常进行，不慌乱'
+      ],
+      reference: '各位考官，遇到这种突发情况，我会沉着冷静、迅速应对。\n\n第一步，保持冷静，立即启动应急预案。我会一边安排技术人员紧急排查故障，一边同步准备替代方案，两条线并行，确保会议不受影响。\n\n第二步，快速评估替代方案。如果附近有空闲会议室，立即协调更换；如果有备用投影设备，马上调来替换；如果短时间内无法修复且无替代设备，我会立即将会议材料打印成纸质版，分发给参会人员，同时请汇报人做好无投影讲解的准备。\n\n第三步，及时汇报。我会在最短时间内向领导简要说明情况和应对措施，让领导心中有数，不会在会上尴尬。\n\n第四步，安抚参会人员。如果参会人员已到场，我会做好引导和服务，必要时说明"会议稍延几分钟"，避免大家无端等待。\n\n第五步，会后复盘。会议结束后，我会认真总结经验：一是今后会议前要提前至少30分钟检查设备；二是重要会议必须配备备用设备；三是完善应急预案，做到有备无患。\n\n凡事预则立。这次经历也提醒我，做会务工作要把困难想在前面，把预案做在前面。回答完毕。'
+    },
+    {
+      id: 'ms8', type: 'qa', category: '自我认知', title: '为什么报考这个岗位',
+      question: '请谈谈你为什么报考这个岗位？你认为自己有哪些优势和不足？',
+      framework: '报考动机 → 自身优势 → 认识不足 → 改进方向 → 表态',
+      points: [
+        '①动机一：认同单位的价值使命，有志于公共服务',
+        '②动机二：专业和经历与岗位匹配，能学以致用',
+        '③优势一：专业扎实，有相关实习/工作经历',
+        '④优势二：踏实肯干，有较强的学习和适应能力',
+        '⑤不足一：实践经验还不够丰富，需要多历练',
+        '⑥不足二：面对复杂局面时还不够沉稳，需要修炼',
+        '⑦改进：多向老同志学习，在实战中积累经验',
+        '⑧表态：如果有幸录用，将全力以赴，不负期望'
+      ],
+      reference: '各位考官，我报考这个岗位，主要基于以下考虑。\n\n第一，关于报考动机。一方面，我认同这个单位所承担的公共使命，有志于在公共服务领域实现人生价值。另一方面，我的专业背景和过往经历与这个岗位比较匹配，能够学以致用，也能在岗位上持续成长。\n\n第二，关于自身优势。一是专业基础扎实，在校/工作期间系统学习了相关知识，能够较快进入工作角色。二是踏实肯干，无论任务大小都认真对待，有较强的执行力和责任心。三是学习能力强，善于在干中学、学中干，能够快速适应新环境、新要求。\n\n第三，关于不足。我也清醒地认识到自己的短板。一是实践经验还不够丰富，处理复杂问题的能力有待提升。二是面对急难险重任务时，心态还不够沉稳，需要更多历练。\n\n第四，关于改进方向。入职后，我会虚心向领导和老同志请教，多观察、多思考、多总结，在实战中积累经验、锤炼作风，努力缩短适应期，尽快成为岗位的行家里手。\n\n如果有幸被录用，我将以饱满的热情和踏实的态度投入工作，不负组织信任，不负这个岗位。回答完毕。'
+    }
+  ],
+
+  // ---- 英语口语 6 话题 ----
+  english: [
+    {
+      id: 'en1', type: 'speak', category: '日常话题', title: '自我介绍 Self Introduction',
+      topic: '请用英语做一个1-2分钟的自我介绍，包括你的基本信息、教育/工作背景、兴趣爱好等。',
+      useful: [
+        '1. My name is... and I\'m from...',
+        '2. I graduated from... with a degree in...',
+        '3. I currently work as... at...',
+        '4. In my free time, I enjoy...',
+        '5. I\'m a person who is...',
+        '6. I look forward to...'
+      ],
+      sample: 'Hello, my name is Li Ming. I\'m 26 years old and I\'m from a beautiful city in southern China. I graduated from XX University with a bachelor\'s degree in Public Administration. Currently, I work at a public institution, where I\'m mainly responsible for administrative work.\n\nIn my free time, I enjoy reading books, especially those about history and philosophy. I also like running and try to jog for 30 minutes every other day. I find that exercise helps me stay focused and energetic.\n\nI would describe myself as a responsible and curious person. I always try to learn new things and improve myself. I believe that continuous learning is the key to personal growth.\n\nThank you for listening.'
+    },
+    {
+      id: 'en2', type: 'speak', category: '日常话题', title: '描述你的家乡 Describe Your Hometown',
+      topic: '请用英语描述你的家乡，包括地理位置、特色、变化等。',
+      useful: [
+        '1. My hometown is located in...',
+        '2. It is known for...',
+        '3. The best time to visit is...',
+        '4. Over the years, it has changed a lot...',
+        '5. What I love most about my hometown is...',
+        '6. I would recommend... to visitors'
+      ],
+      sample: 'My hometown is a medium-sized city located in the southern part of China. It is known for its beautiful scenery and delicious local food, especially the rice noodles that people travel miles to taste.\n\nThe city has changed a lot over the past decade. New roads and buildings have been constructed, and the transportation system has become much more convenient. However, it has also managed to preserve its traditional culture and historic architecture.\n\nWhat I love most about my hometown is the slow pace of life. Unlike big cities where everyone seems to be in a rush, people in my hometown take time to enjoy life—chatting with neighbors, walking in the park, and having long dinners with family.\n\nIf you ever visit, I would highly recommend taking a walk along the river in the evening. The sunset view is absolutely stunning.'
+    },
+    {
+      id: 'en3', type: 'speak', category: '工作话题', title: '谈论你的工作 Talk About Your Job',
+      topic: '请用英语介绍你的工作内容、工作感受和职业规划。',
+      useful: [
+        '1. I work as a... at...',
+        '2. My main responsibilities include...',
+        '3. The most challenging part of my job is...',
+        '4. I find my job... because...',
+        '5. In the future, I hope to...',
+        '6. I\'m planning to improve my skills in...'
+      ],
+      sample: 'I currently work as an administrative staff member at a public institution. My main responsibilities include handling official documents, organizing meetings, and coordinating between different departments.\n\nThe most challenging part of my job is managing multiple tasks at the same time while ensuring accuracy. Working in the public sector requires a high level of attention to detail, as even a small mistake in a document can cause problems.\n\nOverall, I find my job meaningful. Although it can be stressful at times, I feel a sense of accomplishment when I successfully complete a project or help solve a problem for the public.\n\nIn the future, I hope to take on more responsibilities and eventually move into a management role. To achieve this, I\'m planning to improve my skills in project management and public policy analysis. I\'m also working on my English, as I believe it will open up more opportunities.'
+    },
+    {
+      id: 'en4', type: 'speak', category: '日常话题', title: '谈论爱好 Talk About Hobbies',
+      topic: '请用英语介绍你的兴趣爱好，以及它们如何影响你的生活。',
+      useful: [
+        '1. My biggest hobby is...',
+        '2. I started... when I was...',
+        '3. I usually spend... time on it every week',
+        '4. It helps me relax / stay healthy / learn new things',
+        '5. I also enjoy... in my spare time',
+        '6. I think having hobbies is important because...'
+      ],
+      sample: 'I have several hobbies, but my favorite one is reading. I read almost every day—usually before bed. I enjoy all kinds of books, but I\'m particularly fond of history and biography. Reading helps me slow down after a busy day and gives me new perspectives on life.\n\nAnother hobby of mine is running. I try to run three times a week, usually in the morning. Running not only keeps me physically fit but also clears my mind. Some of my best ideas come to me while I\'m running.\n\nI also enjoy cooking on weekends. Trying out new recipes is a fun way to relax, and it\'s rewarding to share a home-cooked meal with family or friends.\n\nI think having hobbies is essential for a balanced life. They give us something to look forward to outside of work and help us maintain our mental and physical well-being.'
+    },
+    {
+      id: 'en5', type: 'speak', category: '观点表达', title: '未来计划 Future Plans',
+      topic: '请用英语谈谈你未来3-5年的计划和目标。',
+      useful: [
+        '1. In the next few years, I plan to...',
+        '2. My short-term goal is to...',
+        '3. My long-term goal is to...',
+        '4. To achieve this, I need to...',
+        '5. I might also consider...',
+        '6. I believe that with hard work, I can...'
+      ],
+      sample: 'In the next three to five years, I have several goals I want to achieve.\n\nProfessionally, my short-term goal is to become more proficient in my current role and take on more challenging projects. I want to build a solid foundation of skills and experience. My long-term goal is to pursue a career in public service at a higher level, where I can make a bigger impact.\n\nTo achieve this, I plan to continue studying public administration and policy analysis. I\'m also considering pursuing a master\'s degree in the future, as I believe further education will broaden my knowledge and open up new opportunities.\n\nOn a personal level, I want to maintain a healthy lifestyle and keep learning new things. I plan to read at least 20 books a year, continue my running routine, and maybe pick up a new skill like photography.\n\nI believe that with consistent effort and a clear direction, I can achieve these goals and become a better version of myself.'
+    },
+    {
+      id: 'en6', type: 'speak', category: '观点表达', title: '对某现象的看法 Expressing Opinions',
+      topic: '请用英语谈谈你对"终身学习"（lifelong learning）的看法。',
+      useful: [
+        '1. In my opinion, lifelong learning is...',
+        '2. I strongly believe that...',
+        '3. One reason is that...',
+        '4. Another reason is that...',
+        '5. For example,...',
+        '6. Therefore, I think we should...'
+      ],
+      sample: 'In my opinion, lifelong learning is not just a choice—it\'s a necessity in today\'s rapidly changing world.\n\nI strongly believe that learning should not stop after graduation. One reason is that technology and society are evolving so fast that knowledge becomes outdated quickly. If we don\'t keep learning, we\'ll fall behind. Another reason is that continuous learning keeps our minds active and curious, which is important for personal growth and mental health.\n\nFor example, in my own life, I make it a point to learn something new every month—whether it\'s a new skill, a new language, or just reading about a topic I\'m not familiar with. This habit has helped me stay adaptable and open-minded.\n\nLifelong learning doesn\'t have to mean formal education. It can be as simple as reading a book, listening to a podcast, or having a meaningful conversation. What matters is the attitude—the willingness to stay curious and keep growing.\n\nTherefore, I think we should all embrace lifelong learning as a way of life, not just a task to complete.'
+    }
+  ],
+
+  // ---- 阅读复述 4 篇 ----
+  readexpress: [
+    {
+      id: 're1', type: 'retell', category: '时政评论', title: '让"钉钉子精神"落到实处',
+      material: '抓落实是党的政治路线、思想路线、群众路线的根本要求，也是衡量党员党性和政绩观的重要标志。习近平总书记多次强调，要发扬"钉钉子精神"，不折腾、不反复，切实把工作落到实处，干出成效来。钉钉子往往不是一锤子就能钉好的，而是要一锤一锤接着敲，直到把钉子钉实、钉牢。如果东一榔头西一棒子，结果很可能一颗钉子都钉不上、钉不牢。这启示我们，做工作要有定力和韧劲，选定方向后就要持之以恒地干下去，不能朝令夕改、半途而废。',
+      guide: '复述要点：1.抓住"钉钉子精神"的核心含义 2.理清"为什么"和"怎么做" 3.用自己的话表达，不要照搬原文',
+      keyPoints: [
+        '①核心概念：钉钉子精神 = 持之以恒抓落实',
+        '②要点一：抓落实是党性的体现，也是政绩观的标尺',
+        '③要点二：钉钉子要一锤一锤敲，不能一锤定音',
+        '④要点三：反对"东一榔头西一棒子"的工作方式',
+        '⑤启示：做事要有定力和韧劲，选定方向坚持到底'
+      ]
+    },
+    {
+      id: 're2', type: 'retell', category: '社会现象', title: '"打卡文化"背后的思考',
+      material: '近年来，"打卡"成为社交热词。从网红餐厅到博物馆，从健身到读书，越来越多的人热衷于在社交媒体上"打卡"记录。一方面，打卡文化确实带动了消费、传播了文化，让一些小众景点和优质内容获得了关注。但另一方面，过度追求打卡也暴露出一些问题：有人为了拍照而在餐厅排队两小时，却不好好品尝美食；有人到博物馆只顾拍照发朋友圈，却没有真正欣赏展品；有人把读书变成"拍照读书"，书没读进去，倒是收获了一堆点赞。这提醒我们，打卡本身没有错，但如果把"打卡"当成了目的，把"晒"代替了"做"，就本末倒置了。真正有意义的经历，不在于是否被记录在朋友圈，而在于是否真正走进了心里。',
+      guide: '复述要点：1.概括打卡文化的两面性 2.列举具体表现 3.点明本质问题',
+      keyPoints: [
+        '①现象：打卡文化盛行，渗透到生活的方方面面',
+        '②正面：带动消费、传播文化、让小众内容被看见',
+        '③负面：重形式轻内容，本末倒置',
+        '④具体表现：排队两小时只为拍照、博物馆拍照不看展、拍照读书',
+        '⑤本质：把"晒"代替了"做"，把形式当成了目的',
+        '⑥结论：有意义的经历在于走进心里，而非被点赞'
+      ]
+    },
+    {
+      id: 're3', type: 'retell', category: '科技发展', title: '人工智能与就业的辩证关系',
+      material: '随着ChatGPT等人工智能技术的快速发展，"AI会不会取代人类工作"成为热议话题。客观来看，AI确实会对部分重复性、规律性的工作产生冲击，比如数据录入、基础客服等岗位可能被自动化替代。但同时，AI也在创造新的就业机会——AI训练师、提示词工程师、AI伦理审核员等新兴职业不断涌现。更重要的是，AI更像是一种"增强工具"而非"替代者"，它能帮人类处理繁琐的重复劳动，让人腾出精力去做更有创造力、更有温度的事情。历史经验也告诉我们，每一次技术革命都会淘汰一些旧岗位，同时创造更多新岗位，关键在于我们是否做好了准备。面对AI浪潮，与其焦虑被替代，不如主动学习、提升自己，学会与AI协作，让技术为我所用。',
+      guide: '复述要点：1.客观分析AI对就业的影响 2.辩证看待替代与创造 3.点明应对之策',
+      keyPoints: [
+        '①背景：AI技术快速发展，引发就业焦虑',
+        '②冲击：重复性、规律性工作面临被替代风险',
+        '③机遇：AI训练师等新兴职业不断涌现',
+        '④本质：AI是"增强工具"而非完全"替代者"',
+        '⑤历史规律：技术革命淘汰旧岗位也创造新岗位',
+        '⑥应对：主动学习，学会与AI协作，让技术为我所用'
+      ]
+    },
+    {
+      id: 're4', type: 'retell', category: '人文关怀', title: '"慢下来"的力量',
+      material: '在这个快节奏的时代，"慢"似乎成了一种奢侈。我们习惯于快餐、快讯、快交通，习惯了"多快好省"地处理一切事务。然而，越来越多的研究表明，适当的"慢"不仅不是浪费时间，反而是提升质量、滋养心灵的重要方式。慢食运动提倡细细品味食物，发现匆忙进食错过的美好；慢阅读倡导深度阅读，在字里行间建立与作者的对话；慢生活鼓励我们偶尔放下手机，感受当下的一杯茶、一阵风、一段对话。慢，不是懒惰，不是低效，而是一种对生活的尊重，对品质的追求。正如米兰·昆德拉所说："慢的程度与记忆的强度成正比。"那些被我们慢慢经历的事，往往记得最久、感受最深。在奔跑的路上，偶尔停下来，不是为了停滞，而是为了更好地前行。',
+      guide: '复述要点：1.对比"快"与"慢" 2.列举"慢"的具体表现 3.点明"慢"的本质价值',
+      keyPoints: [
+        '①背景：快节奏时代，"慢"成了奢侈',
+        '②现状：习惯于快餐、快讯、"多快好省"',
+        '③表现：慢食、慢阅读、慢生活',
+        '④本质：慢不是懒惰，是对生活的尊重和对品质的追求',
+        '⑤金句："慢的程度与记忆的强度成正比"',
+        '⑥升华：偶尔停下来，是为了更好地前行'
+      ]
+    }
+  ]
+};
+
+// 图标 SVG
+const ICONS = {
+  moon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>',
+  water: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>',
+  toilet: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 5h12v6a6 6 0 0 1-12 0V5z"/><path d="M6 5H4v2a2 2 0 0 0 2 2"/><path d="M12 17v4"/><path d="M8 21h8"/></svg>',
+  dumbbell: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6.5 6.5l11 11"/><path d="M21 21l-1-1"/><path d="M3 3l1 1"/><path d="M18 22l4-4"/><path d="M2 6l4-4"/><path d="M3 10l7-7"/><path d="M14 21l7-7"/></svg>',
+  peace: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2v20"/><path d="M2 12h20"/></svg>',
+  lotus: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a3 3 0 0 0-3 3c0 1.5 1 3 3 5 2-2 3-3.5 3-5a3 3 0 0 0-3-3z"/><path d="M5 8c0 2 2 4 5 5-3 1-5 3-5 5"/><path d="M19 8c0 2-2 4-5 5 3 1 5 3 5 5"/></svg>',
+  heart: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>',
+  flame: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 1.5 1.3 2.5 3.1 2.5 5.2a6.5 6.5 0 1 1-13 0c0-3 2-5.5 3.5-6.5 1 1.5 1.5 3 1 5.3z"/></svg>',
+  book: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>',
+  globe: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>',
+  study: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>',
+  check: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>',
+  trash: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>',
+  edit: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>',
+  star: '<svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>',
+  smile: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>',
+  empty: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="8" y1="12" x2="16" y2="12"/></svg>'
+};
+
+// ============================================================
+// 初始化
+// ============================================================
+function initSampleData() {
+  const initialized = load(KEYS.initialized, false);
+  if (initialized) return;
+
+  const today = new Date();
+  const y = today.getFullYear(), m = today.getMonth(), d = today.getDate();
+  const tStr = todayStr();
+  const yesterday = dateStr(new Date(y, m, d - 1));
+  const tomorrow = dateStr(new Date(y, m, d + 1));
+  const nextWeek = dateStr(new Date(y, m, d + 3));
+
+  // 示例任务（含逾期）
+  const tasks = [
+    { id: uid(), text: '整理本周工作周报', priority: 'p0', type: 'work', dueDate: yesterday, done: false, createdAt: yesterday },
+    { id: uid(), text: '完成试用期考核材料初稿', priority: 'p1', type: 'work', dueDate: tStr, done: false, createdAt: yesterday },
+    { id: uid(), text: '参加部门例会', priority: 'p1', type: 'work', dueDate: tStr, done: true, createdAt: yesterday },
+    { id: uid(), text: '回复公文流转单', priority: 'p2', type: 'work', dueDate: nextWeek, done: false, createdAt: yesterday },
+    { id: uid(), text: '行测资料分析练习 50 题', priority: 'p1', type: 'study', dueDate: tStr, done: false, createdAt: yesterday }
+  ];
+  save(KEYS.tasks, tasks);
+
+  // 习惯配置
+  save(KEYS.habits, DEFAULT_HABITS);
+
+  // 习惯记录（昨天打了几个卡）
+  // 习惯记录默认全部为空，不预置任何勾选
+  save(KEYS.habitRecords, {});
+
+  save(KEYS.currentStudy, 'xingce');
+
+  // 影视记录
+  const media = [
+    { id: uid(), title: '觉醒年代', type: 'tv', date: yesterday, rating: 5, note: '看完特别有力量感，先辈不易，吾辈自强。' },
+    { id: uid(), title: '人生第二次', type: 'doc', date: dateStr(new Date(y, m, d-5)), rating: 4, note: '普通人的韧性，比任何鸡汤都动人。' }
+  ];
+  save(KEYS.media, media);
+
+  // 幸福小事
+  const happy = [
+    { id: uid(), text: '午休时在窗边晒了十分钟太阳，特别舒服。', date: yesterday },
+    { id: uid(), text: '今天同事夸我材料写得好，开心了一下午。', date: dateStr(new Date(y, m, d-3)) }
+  ];
+  save(KEYS.happy, happy);
+
+  // 倒计时
+  save(KEYS.countdown, { date: '2031-07-09', label: '服务期' });
+
+  save(KEYS.initialized, true);
+}
+
+// ============================================================
+// 全局状态
+// ============================================================
+let currentTab = 'work';
+let currentGrowth = 'body';
+let currentStudy = 'xingce';
+let taskFilter = 'all';
+let editingMediaId = null;
+let currentStar = 0;
+let editingTaskId = null;
+let editingHappyId = null;
+let modalPrio = 'p1';
+let selectedHabitIcon = 'peace';
+
+// ============================================================
+// Tab 切换
+// ============================================================
+function switchTab(tab) {
+  currentTab = tab;
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.toggle('active', b.dataset.tab === tab));
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.getElementById('panel-' + tab).classList.add('active');
+  // "今天要处理"只在工作任务Tab显示
+  document.getElementById('todaySection').style.display = (tab === 'work') ? '' : 'none';
+  renderAll();
+}
+
+function switchGrowth(cat) {
+  currentGrowth = cat;
+  save(KEYS.currentGrowth, cat);
+  document.querySelectorAll('.growth-tab').forEach(t => t.classList.toggle('active', t.dataset.growth === cat));
+  renderHabits();
+}
+
+// ============================================================
+// 渲染：Header
+// ============================================================
+function renderHeader() {
+  const now = new Date();
+  const weekDays = ['日','一','二','三','四','五','六'];
+  document.getElementById('dateSubtitle').textContent = `${now.getFullYear()}年${now.getMonth()+1}月${now.getDate()}日 · 星期${weekDays[now.getDay()]}`;
+}
+
+function renderCountdown() {
+  const cd = load(KEYS.countdown, { date: '2031-07-09', label: '服务期' });
+  const target = parseDate(cd.date);
+  const now = new Date();
+  now.setHours(0,0,0,0);
+  const days = Math.max(0, daysBetween(now, target));
+
+  document.getElementById('countdownDays').innerHTML = `${days} <span>天</span>`;
+  document.getElementById('countdownTarget').textContent = `服务期：2026.07.09 - ${cd.date.replace(/-/g, '.')}`;
+
+  // 进度环：以入职日 2026-07-09 为起点
+  const start = new Date(2026, 6, 9);
+  const total = daysBetween(start, target);
+  const passed = daysBetween(start, now);
+  const pct = Math.min(1, Math.max(0, passed / total));
+  const circumference = 2 * Math.PI * 24;
+  const offset = circumference * (1 - pct);
+  document.getElementById('countdownProgress').setAttribute('stroke-dasharray', circumference);
+  document.getElementById('countdownProgress').setAttribute('stroke-dashoffset', offset);
+}
+
+// ============================================================
+// 渲染：今天要处理
+// ============================================================
+function renderToday() {
+  const tasks = load(KEYS.tasks, []);
+  const today = todayStr();
+  const now = new Date(); now.setHours(0,0,0,0);
+
+  // 收集所有需要今天处理的（包含已完成，点击只切换状态）
+  const items = [];
+
+  tasks.forEach(t => {
+    const due = t.dueDate ? parseDate(t.dueDate) : null;
+    const isOverdue = due && due < now;
+    const isToday = t.dueDate === today;
+    // 逾期 或 今天到期 的才显示
+    if (isOverdue || isToday) {
+      items.push({
+        id: t.id,
+        text: t.text,
+        type: t.type || 'work',
+        overdue: isOverdue,
+        due: t.dueDate,
+        done: !!t.done
+      });
+    }
+  });
+
+  // 排序：未完成的在前，逾期优先
+  items.sort((a, b) => {
+    if (a.done !== b.done) return a.done ? 1 : -1;
+    if (a.overdue && !b.overdue) return -1;
+    if (!a.overdue && b.overdue) return 1;
+    return 0;
+  });
+
+  document.getElementById('todayCount').textContent = items.length;
+
+  const list = document.getElementById('todayList');
+  if (items.length === 0) {
+    list.innerHTML = `<div class="today-empty">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width:36px;height:36px;color:var(--c-primary);margin-bottom:8px;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      <div>今天没有待处理的事项，保持节奏！</div>
+    </div>`;
+    return;
+  }
+
+  const tagLabels = { work: '工作', growth: '成长', study: '学习', life: '生活' };
+  list.innerHTML = items.map(item => {
+    const cls = item.overdue ? 'overdue' : 'today-item-due';
+    const metaTag = item.overdue
+      ? `<span class="tag-overdue">逾期 ${fmtDate(item.due)}</span>`
+      : `<span class="tag-due">今天</span>`;
+    return `<div class="today-item ${cls} ${item.done ? 'done' : ''}" data-id="${item.id}">
+      <div class="today-check ${item.done ? 'checked' : ''}" onclick="toggleTask('${item.id}')">${ICONS.check}</div>
+      <div class="today-content">
+        <div class="today-text">${escapeHtml(item.text)}</div>
+        <div class="today-meta">
+          <span class="today-tag ${item.type}">${tagLabels[item.type] || '任务'}</span>
+          ${metaTag}
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function toggleTodayItem(id) {
+  toggleTask(id);
+  renderAll();
+}
+
+// ============================================================
+// 渲染：工作任务
+// ============================================================
+function renderWeekGrid() {
+  const tasks = load(KEYS.tasks, []);
+  const [monday, sunday] = getWeekRange(new Date());
+  const today = todayStr();
+
+  const days = [];
+  for (let i = 0; i < 7; i++) {
+    const d = new Date(monday);
+    d.setDate(monday.getDate() + i);
+    const ds = dateStr(d);
+    const count = tasks.filter(t => t.dueDate === ds).length;
+    const doneCount = tasks.filter(t => t.dueDate === ds && t.done).length;
+    days.push({ date: d, ds, count, doneCount });
+  }
+
+  const wdLabels = ['一','二','三','四','五','六','日'];
+  document.getElementById('weekGrid').innerHTML = days.map((day, i) => {
+    const isToday = day.ds === today;
+    return `<div class="week-cell ${isToday ? 'today' : ''}">
+      <div class="wd">${wdLabels[i]}</div>
+      <div class="wdate">${day.date.getDate()}</div>
+      ${day.count > 0 ? `<div class="wcount">${day.doneCount}/${day.count}</div>` : ''}
+    </div>`;
+  }).join('');
+
+  // 统计
+  const weekTasks = tasks.filter(t => {
+    if (!t.dueDate) return false;
+    const d = parseDate(t.dueDate);
+    return d >= monday && d <= new Date(sunday.getTime() + 86400000);
+  });
+  const weekDone = weekTasks.filter(t => t.done).length;
+  document.getElementById('weekTotal').textContent = weekTasks.length;
+  document.getElementById('weekDone').textContent = weekDone;
+  document.getElementById('weekRate').textContent = weekTasks.length > 0 ? Math.round(weekDone / weekTasks.length * 100) + '%' : '0%';
+}
+
+function renderTasks() {
+  const tasks = load(KEYS.tasks, []);
+  const today = todayStr();
+  const now = new Date(); now.setHours(0,0,0,0);
+
+  let filtered = tasks;
+  if (taskFilter === 'pending') filtered = tasks.filter(t => !t.done);
+  else if (taskFilter === 'done') filtered = tasks.filter(t => t.done);
+  else if (taskFilter === 'overdue') filtered = tasks.filter(t => !t.done && t.dueDate && parseDate(t.dueDate) < now);
+
+  // 排序：未完成在前，按优先级 P0>P1>P2，再按截止日期
+  const prioOrder = { p0: 0, p1: 1, p2: 2 };
+  filtered.sort((a, b) => {
+    if (a.done !== b.done) return a.done ? 1 : -1;
+    if (prioOrder[a.priority] !== prioOrder[b.priority]) return prioOrder[a.priority] - prioOrder[b.priority];
+    if (a.dueDate && b.dueDate) return a.dueDate.localeCompare(b.dueDate);
+    return 0;
+  });
+
+  const list = document.getElementById('taskList');
+  if (filtered.length === 0) {
+    list.innerHTML = `<div class="empty-state">${ICONS.empty}<div class="etext">暂无任务</div></div>`;
+    return;
+  }
+
+  const prioLabels = { p0: 'P0', p1: 'P1', p2: 'P2' };
+  list.innerHTML = filtered.map(t => {
+    const due = t.dueDate ? parseDate(t.dueDate) : null;
+    let dueClass = '';
+    let dueText = '';
+    if (due && !t.done) {
+      if (due < now) { dueClass = 'overdue'; dueText = `逾期 ${fmtDate(t.dueDate)}`; }
+      else if (t.dueDate === today) { dueClass = 'today'; dueText = '今天'; }
+      else dueText = fmtDate(t.dueDate);
+    } else if (t.dueDate) {
+      dueText = fmtDate(t.dueDate);
+    }
+    return `<div class="task-item ${t.done ? 'done' : ''}">
+      <div class="task-check" onclick="toggleTask('${t.id}')">${ICONS.check}</div>
+      <div class="task-body">
+        <div class="task-text">${escapeHtml(t.text)}</div>
+        <div class="task-meta">
+          <span class="task-priority ${t.priority}">${prioLabels[t.priority]}</span>
+          ${dueText ? `<span class="task-due ${dueClass}">${dueText}</span>` : ''}
+        </div>
+      </div>
+      <div class="task-actions">
+        <button class="task-action-btn" onclick="openEditTask('${t.id}')">${ICONS.edit}</button>
+        <button class="task-action-btn delete" onclick="deleteTask('${t.id}')">${ICONS.trash}</button>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function setTaskFilter(f) {
+  taskFilter = f;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.toggle('active', b.dataset.filter === f));
+  renderTasks();
+}
+
+function addTask() {
+  const input = document.getElementById('taskInput');
+  const text = input.value.trim();
+  if (!text) return;
+  const prio = document.getElementById('taskPriority').value;
+  const tasks = load(KEYS.tasks, []);
+  tasks.unshift({
+    id: uid(),
+    text,
+    priority: prio,
+    type: 'work',
+    dueDate: todayStr(),
+    done: false,
+    createdAt: todayStr()
+  });
+  save(KEYS.tasks, tasks);
+  input.value = '';
+  renderAll();
+  showToast('任务已添加');
+}
+
+function toggleTask(id) {
+  const tasks = load(KEYS.tasks, []);
+  const t = tasks.find(x => x.id === id);
+  if (t) {
+    t.done = !t.done;
+    if (t.done) t.completedAt = todayStr();
+    save(KEYS.tasks, tasks);
+    renderAll();
+  }
+}
+
+function deleteTask(id) {
+  showConfirm('删除任务', '确定删除这条任务吗？删除后不可恢复。', () => {
+    const tasks = load(KEYS.tasks, []);
+    save(KEYS.tasks, tasks.filter(t => t.id !== id));
+    renderAll();
+    showToast('已删除');
+  });
+}
+
+function openEditTask(id) {
+  const tasks = load(KEYS.tasks, []);
+  const t = tasks.find(x => x.id === id);
+  if (!t) return;
+  editingTaskId = id;
+  document.getElementById('taskModalTitle').textContent = '编辑任务';
+  document.getElementById('taskModalText').value = t.text;
+  document.getElementById('taskModalDue').value = t.dueDate || '';
+  document.getElementById('taskModalType').value = t.type || 'work';
+  setModalPrio(t.priority || 'p1');
+  openModal('taskModal');
+}
+
+function setModalPrio(p) {
+  modalPrio = p;
+  document.querySelectorAll('.priority-pill').forEach(el => el.classList.toggle('active', el.dataset.prio === p));
+}
+
+function saveTaskModal() {
+  const text = document.getElementById('taskModalText').value.trim();
+  if (!text) { showToast('请输入任务内容'); return; }
+  const due = document.getElementById('taskModalDue').value;
+  const type = document.getElementById('taskModalType').value;
+  const tasks = load(KEYS.tasks, []);
+  if (editingTaskId) {
+    const t = tasks.find(x => x.id === editingTaskId);
+    if (t) {
+      t.text = text;
+      t.dueDate = due;
+      t.type = type;
+      t.priority = modalPrio;
+    }
+  } else {
+    tasks.unshift({
+      id: uid(), text, priority: modalPrio, type, dueDate: due || todayStr(), done: false, createdAt: todayStr()
+    });
+  }
+  save(KEYS.tasks, tasks);
+  closeModal('taskModal');
+  editingTaskId = null;
+  renderAll();
+  showToast('已保存');
+}
+
+// ============================================================
+// 渲染：成长打卡
+// ============================================================
+function renderHabits() {
+  const habits = load(KEYS.habits, DEFAULT_HABITS);
+  const records = load(KEYS.habitRecords, {});
+  const today = todayStr();
+  const filtered = habits.filter(h => h.category === currentGrowth);
+
+  const list = document.getElementById('habitList');
+  if (filtered.length === 0) {
+    list.innerHTML = `<div class="empty-state">${ICONS.empty}<div class="etext">还没有习惯，点击右上角"+ 添加习惯"开始吧</div></div>`;
+    return;
+  }
+
+  list.innerHTML = filtered.map(h => {
+    const checked = (records[h.id] || []).includes(today);
+    const streak = calcStreak(records[h.id] || []);
+    const weekData = getWeekChecked(records[h.id] || []);
+    const hasPractice = GROWTH_STUDY_LINKS[h.id];
+    const practiceLabel = h.id === 'h_gongkao' ? '去学习' : '去练习';
+    const isDefault = DEFAULT_HABIT_IDS.includes(h.id);
+
+    return `<div class="habit-item">
+      <div class="habit-icon ${currentGrowth}">${ICONS[h.icon] || ICONS.peace}</div>
+      <div class="habit-info">
+        <div class="habit-name">${h.name}</div>
+        <div class="habit-streak">
+          ${streak > 0 ? `<span class="fire">${ICONS.flame}</span><span class="streak-num">${streak}</span> 天连续` : `目标：${h.target}`}
+        </div>
+        <div class="habit-week">
+          ${weekData.map((w, i) => `<div class="habit-day ${w.checked ? 'checked ' + currentGrowth : ''} ${w.today ? 'today' : ''}"></div>`).join('')}
+        </div>
+        <div class="habit-week-labels">
+          <span>一</span><span>二</span><span>三</span><span>四</span><span>五</span><span>六</span><span>日</span>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:6px;align-items:flex-end;">
+        <div style="display:flex;gap:4px;">
+          ${hasPractice ? `<button class="habit-practice-btn" onclick="openStudyPod('${GROWTH_STUDY_LINKS[h.id]}')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            ${practiceLabel}
+          </button>` : ''}
+          ${isDefault ? '' : `<button class="task-action-btn delete" onclick="deleteHabit('${h.id}')" title="删除习惯">${ICONS.trash}</button>`}
+        </div>
+        <button class="habit-check-btn ${checked ? 'checked ' + currentGrowth : ''}" onclick="toggleHabit('${h.id}')">${ICONS.check}</button>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function calcStreak(dates) {
+  if (!dates.length) return 0;
+  const sorted = [...dates].sort().reverse();
+  const today = new Date(); today.setHours(0,0,0,0);
+  const latest = parseDate(sorted[0]);
+  // 如果最近一次打卡是今天或昨天
+  const diff = daysBetween(latest, today);
+  if (diff > 1) return 0;
+
+  let streak = 1;
+  for (let i = 1; i < sorted.length; i++) {
+    const prev = parseDate(sorted[i]);
+    const curr = parseDate(sorted[i-1]);
+    if (daysBetween(prev, curr) === 1) streak++;
+    else break;
+  }
+  return streak;
+}
+
+function getWeekChecked(dates) {
+  const [monday] = getWeekRange(new Date());
+  const today = todayStr();
+  const result = [];
+  for (let i = 0; i < 7; i++) {
+    const d = new Date(monday);
+    d.setDate(monday.getDate() + i);
+    const ds = dateStr(d);
+    result.push({ checked: dates.includes(ds), today: ds === today });
+  }
+  return result;
+}
+
+function toggleHabit(hid) {
+  const records = load(KEYS.habitRecords, {});
+  if (!records[hid]) records[hid] = [];
+  const today = todayStr();
+  const idx = records[hid].indexOf(today);
+  if (idx >= 0) {
+    records[hid].splice(idx, 1);
+  } else {
+    records[hid].push(today);
+    showToast('打卡成功！');
+  }
+  save(KEYS.habitRecords, records);
+  renderHabits();
+  renderHabitChart();
+}
+
+function deleteHabit(hid) {
+  showConfirm('删除习惯', '确定删除这个习惯吗？相关的打卡记录也会一起删除。', () => {
+    const habits = load(KEYS.habits, DEFAULT_HABITS);
+    const records = load(KEYS.habitRecords, {});
+    save(KEYS.habits, habits.filter(h => h.id !== hid));
+    delete records[hid];
+    save(KEYS.habitRecords, records);
+    renderHabits();
+    renderHabitChart();
+    showToast('已删除');
+  });
+}
+
+// 可选图标列表
+const HABIT_ICON_OPTIONS = [
+  { key: 'moon', label: '月亮' },
+  { key: 'water', label: '喝水' },
+  { key: 'dumbbell', label: '运动' },
+  { key: 'peace', label: '平静' },
+  { key: 'lotus', label: '莲花' },
+  { key: 'heart', label: '爱心' },
+  { key: 'book', label: '阅读' },
+  { key: 'globe', label: '地球' },
+  { key: 'study', label: '学习' },
+  { key: 'star', label: '星星' },
+  { key: 'smile', label: '微笑' }
+];
+
+function openHabitModal() {
+  document.getElementById('habitNameInput').value = '';
+  document.getElementById('habitCategoryInput').value = currentGrowth;
+  document.getElementById('habitTargetInput').value = '每天';
+  selectedHabitIcon = 'peace';
+  // 渲染图标选择器
+  const picker = document.getElementById('habitIconPicker');
+  picker.innerHTML = HABIT_ICON_OPTIONS.map(opt =>
+    `<div class="icon-option ${opt.key === selectedHabitIcon ? 'selected' : ''}" onclick="selectHabitIcon('${opt.key}')" title="${opt.label}">
+      <div class="icon-option-inner">${ICONS[opt.key] || ICONS.peace}</div>
+    </div>`
+  ).join('');
+  openModal('habitModal');
+}
+
+function selectHabitIcon(key) {
+  selectedHabitIcon = key;
+  const picker = document.getElementById('habitIconPicker');
+  picker.innerHTML = HABIT_ICON_OPTIONS.map(opt =>
+    `<div class="icon-option ${opt.key === selectedHabitIcon ? 'selected' : ''}" onclick="selectHabitIcon('${opt.key}')" title="${opt.label}">
+      <div class="icon-option-inner">${ICONS[opt.key] || ICONS.peace}</div>
+    </div>`
+  ).join('');
+}
+
+function saveHabit() {
+  const name = document.getElementById('habitNameInput').value.trim();
+  if (!name) { showToast('请输入习惯名称'); return; }
+  const category = document.getElementById('habitCategoryInput').value;
+  const target = document.getElementById('habitTargetInput').value;
+  const icon = selectedHabitIcon || 'peace';
+  const habits = load(KEYS.habits, DEFAULT_HABITS);
+  const newHabit = {
+    id: 'h_' + Date.now(),
+    name,
+    category,
+    icon,
+    target
+  };
+  habits.push(newHabit);
+  save(KEYS.habits, habits);
+  closeModal('habitModal');
+  // 切换到对应分类
+  switchGrowth(category);
+  showToast('习惯已添加');
+}
+
+function renderHabitChart() {
+  const habits = load(KEYS.habits, DEFAULT_HABITS);
+  const records = load(KEYS.habitRecords, {});
+  const [monday] = getWeekRange(new Date());
+
+  // 每天的打卡数
+  const dayCounts = [];
+  for (let i = 0; i < 7; i++) {
+    const d = new Date(monday);
+    d.setDate(monday.getDate() + i);
+    const ds = dateStr(d);
+    let count = 0;
+    habits.forEach(h => {
+      if ((records[h.id] || []).includes(ds)) count++;
+    });
+    dayCounts.push(count);
+  }
+
+  const maxVal = Math.max(...dayCounts, habits.length);
+  const chartH = 100;
+  const barW = 30;
+  const gap = 8;
+  const totalW = 7 * (barW + gap) - gap;
+  const wdLabels = ['一','二','三','四','五','六','日'];
+
+  const bars = dayCounts.map((c, i) => {
+    const h = maxVal > 0 ? (c / maxVal) * (chartH - 20) : 0;
+    const y = chartH - h - 15;
+    const x = i * (barW + gap) + 10;
+    return `<rect x="${x}" y="${y}" width="${barW}" height="${h}" rx="4" fill="${c > 0 ? 'var(--c-primary)' : 'var(--c-border-soft)'}"/>
+            <text x="${x + barW/2}" y="${chartH - 3}" text-anchor="middle" font-size="10" fill="var(--c-muted)">${wdLabels[i]}</text>
+            ${c > 0 ? `<text x="${x + barW/2}" y="${y - 4}" text-anchor="middle" font-size="10" font-weight="600" fill="var(--c-primary-dark)">${c}</text>` : ''}`;
+  }).join('');
+
+  document.getElementById('habitWeekChart').innerHTML = `<svg viewBox="0 0 ${totalW + 20} ${chartH + 5}" style="width:100%;max-width:400px;height:auto;display:block;margin:0 auto;">
+    ${bars}
+  </svg>`;
+  // 加一个总览
+  const totalWeek = dayCounts.reduce((a, b) => a + b, 0);
+  const totalPossible = habits.length * 7;
+  document.getElementById('habitWeekChart').innerHTML += `<div style="text-align:center;margin-top:10px;font-size:12px;color:var(--c-muted);">本周打卡 <strong style="color:var(--c-primary-dark);">${totalWeek}</strong> / ${totalPossible} 次 · 完成率 ${totalPossible > 0 ? Math.round(totalWeek/totalPossible*100) : 0}%</div>`;
+}
+
+// 智慧锦囊
+function renderWisdom() {
+  let idx = load(KEYS.wisdomIndex, Math.floor(Math.random() * WISDOMS.length));
+  if (idx >= WISDOMS.length) idx = 0;
+  const w = WISDOMS[idx];
+  document.getElementById('wisdomText').textContent = w.text;
+  document.getElementById('wisdomSource').textContent = '—— ' + w.source;
+}
+
+function refreshWisdom() {
+  let idx = load(KEYS.wisdomIndex, 0);
+  idx = (idx + 1 + Math.floor(Math.random() * 3)) % WISDOMS.length;
+  save(KEYS.wisdomIndex, idx);
+  renderWisdom();
+  showToast('已换一条');
+}
+
+// ============================================================
+// 学习舱逻辑
+// ============================================================
+let podSubject = null;
+let podIndex = 0;
+
+function getStudyRecords() {
+  return load(KEYS.studyRecords, {});
+}
+
+function openStudyPod(subjectId) {
+  // 特殊处理：考公学习打卡项 → 跳转到考公学习 Tab
+  if (subjectId === '__study_tab__') {
+    switchTab('study');
+    return;
+  }
+  if (!STUDY_BANK[subjectId]) return;
+  podSubject = subjectId;
+  document.getElementById('studyPod').classList.add('active');
+  document.body.style.overflow = 'hidden';
+  // 每日一题科目直接进入当前题；行测进入题目列表
+  if (DAILY_SUBJECTS.includes(subjectId)) {
+    podIndex = getDailyPointer(subjectId);
+    renderPodQuestion();
+  } else {
+    podIndex = 0;
+    renderPodList();
+  }
+}
+
+// 每日一题科目
+const DAILY_SUBJECTS = ['shenlun', 'mianshi', 'english', 'readexpress'];
+
+// 获取每日一题指针（不自动推进，只在用户点击"换下一题"时推进）
+function getDailyPointer(subjectId) {
+  const pointers = load(KEYS.dailyPointers, {});
+  let p = pointers[subjectId];
+  if (!p) {
+    p = { index: 0, date: todayStr() };
+    pointers[subjectId] = p;
+    save(KEYS.dailyPointers, pointers);
+  }
+  return p.index;
+}
+
+// 标记每日一题完成后推进
+function advanceDailyPointer(subjectId) {
+  const pointers = load(KEYS.dailyPointers, {});
+  const bank = STUDY_BANK[subjectId] || [];
+  if (bank.length === 0) return;
+  let p = pointers[subjectId] || { index: 0, date: todayStr() };
+  // 推进到下一题（循环）
+  p = { index: (p.index + 1) % bank.length, date: todayStr() };
+  pointers[subjectId] = p;
+  save(KEYS.dailyPointers, pointers);
+}
+
+function closeStudyPod() {
+  document.getElementById('studyPod').classList.remove('active');
+  document.body.style.overflow = '';
+  podSubject = null;
+  // 返回时刷新相关数据
+  renderAll();
+}
+
+function renderPodHeader() {
+  const bank = STUDY_BANK[podSubject] || [];
+  const records = getStudyRecords();
+  const doneCount = bank.filter(q => records[q.id] && records[q.id].done).length;
+  const isDaily = DAILY_SUBJECTS.includes(podSubject);
+  document.getElementById('podTitle').textContent = SUBJECT_LABELS[podSubject] || '学习舱';
+  if (isDaily) {
+    document.getElementById('podProgress').textContent = `每日一题 · 第 ${podIndex + 1} 题 · 已练 ${doneCount}/${bank.length}`;
+  } else {
+    document.getElementById('podProgress').textContent = `共 ${bank.length} 题 · 已练 ${doneCount} 题`;
+  }
+}
+
+// 渲染题目列表（仅行测用）
+function renderPodList() {
+  renderPodHeader();
+  const bank = STUDY_BANK[podSubject] || [];
+  const records = getStudyRecords();
+  const body = document.getElementById('podBody');
+
+  // 概览统计
+  let correctCount = 0, wrongCount = 0, doneCount = 0;
+  bank.forEach(q => {
+    const r = records[q.id];
+    if (r && r.done) {
+      doneCount++;
+      if (r.correct === true) correctCount++;
+      else if (r.correct === false) wrongCount++;
+    }
+  });
+
+  const statsHtml = `
+    <div class="card" style="margin-bottom:14px;">
+      <div class="task-stats" style="margin-bottom:0;">
+        <div class="stat-pill"><div class="num">${bank.length}</div><div class="lbl">总题数</div></div>
+        <div class="stat-pill done"><div class="num">${doneCount}</div><div class="lbl">已练习</div></div>
+        ${podSubject === 'xingce' ? `
+          <div class="stat-pill"><div class="num" style="color:var(--c-primary);">${correctCount}</div><div class="lbl">正确</div></div>
+          <div class="stat-pill"><div class="num" style="color:var(--c-red);">${wrongCount}</div><div class="lbl">错误</div></div>
+        ` : ''}
+      </div>
+    </div>
+  `;
+
+  const listHtml = bank.map((q, i) => {
+    const r = records[q.id];
+    const done = r && r.done;
+    const wrong = done && r.correct === false;
+    const statusText = done ? (r.correct === true ? '✓ 正确' : r.correct === false ? '✗ 错误' : '已练') : '未做';
+    const statusClass = done ? (r.correct === false ? 'wrong' : 'done') : '';
+    return `<div class="pod-list-item ${done ? 'done' : ''} ${wrong ? 'wrong' : ''}" onclick="openPodQuestion(${i})">
+      <div class="pod-list-num">${i + 1}</div>
+      <div class="pod-list-info">
+        <div class="pod-list-title">${escapeHtml(q.title)}</div>
+        <div class="pod-list-meta">${q.category}</div>
+      </div>
+      <div class="pod-list-status ${statusClass}">${statusText}</div>
+    </div>`;
+  }).join('');
+
+  body.innerHTML = statsHtml + `<div class="pod-list">${listHtml}</div>`;
+}
+
+// 打开单题
+function openPodQuestion(idx) {
+  podIndex = idx;
+  renderPodQuestion();
+}
+
+function renderPodQuestion() {
+  renderPodHeader();
+  const bank = STUDY_BANK[podSubject] || [];
+  const q = bank[podIndex];
+  if (!q) return;
+  const records = getStudyRecords();
+  const r = records[q.id] || {};
+  const isDaily = DAILY_SUBJECTS.includes(podSubject);
+
+  let html = `<div class="q-card">`;
+  html += `<div class="q-tag-row">
+    <span class="q-tag num">${isDaily ? '今日' : '第'} ${podIndex + 1} / ${bank.length} 题</span>
+    <span class="q-tag cat">${q.category}</span>
+    ${r.done ? `<span class="q-tag ${r.correct === true ? 'correct' : r.correct === false ? 'wrong' : 'done'}">${r.correct === true ? '已答对' : r.correct === false ? '已答错' : '已练习'}</span>` : ''}
+  </div>`;
+  html += `<div class="q-title">${escapeHtml(q.title)}</div>`;
+
+  if (q.material) {
+    html += `<div class="q-material-label">给定材料</div><div class="q-material">${escapeHtml(q.material)}</div>`;
+  }
+  if (q.question) {
+    html += `<div class="q-question">${escapeHtml(q.question)}</div>`;
+  }
+
+  // 根据题型渲染
+  if (q.type === 'choice') {
+    html += renderChoiceOptions(q, r);
+  } else {
+    // 写作/答题类
+    html += renderTextAnswer(q, r);
+  }
+
+  html += `</div>`;
+
+  // 导航
+  if (isDaily) {
+    // 每日一题：做完后显示"下一题"按钮推进
+    if (r.done) {
+      html += `<div class="pod-nav">
+        <button class="pod-nav-btn next" style="flex:1;" onclick="advanceAndNext()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+          完成今日题，换下一题
+        </button>
+      </div>`;
+    }
+  } else {
+    // 行测：上一题/下一题
+    html += `<div class="pod-nav">
+      <button class="pod-nav-btn prev" onclick="podPrev()" ${podIndex === 0 ? 'disabled' : ''}>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+        上一题
+      </button>
+      <button class="pod-nav-btn next" onclick="podNext()" ${podIndex >= bank.length - 1 ? 'disabled' : ''}>
+        下一题
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+    </div>`;
+  }
+
+  // 列表返回按钮（行测才显示）
+  if (!isDaily) {
+    html += `<div style="text-align:center;margin-top:14px;">
+      <button class="btn-ghost" onclick="renderPodList()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        返回题目列表
+      </button>
+    </div>`;
+  }
+
+  document.getElementById('podBody').innerHTML = html;
+  // 滚动到顶部
+  document.getElementById('studyPod').scrollTop = 0;
+}
+
+// 每日一题完成后的推进
+function advanceAndNext() {
+  advanceDailyPointer(podSubject);
+  podIndex = getDailyPointer(podSubject);
+  renderPodQuestion();
+  showToast('已换新题，继续加油！');
+}
+
+// 渲染选择题选项
+function renderChoiceOptions(q, r) {
+  const selected = r.selectedAnswer;
+  const answered = r.done;
+  let html = '<div class="q-options">';
+  q.options.forEach((opt, i) => {
+    let cls = '';
+    let letter = String.fromCharCode(65 + i);
+    if (answered) {
+      cls = 'disabled';
+      if (i === q.answer) cls += ' correct';
+      if (i === selected && i !== q.answer) cls += ' wrong';
+    } else if (i === selected) {
+      cls = 'selected';
+    }
+    html += `<div class="q-option ${cls}" ${answered ? '' : `onclick="selectChoice('${q.id}', ${i})"`}>
+      <div class="opt-letter">${letter}</div>
+      <div class="opt-text">${escapeHtml(opt)}</div>
+    </div>`;
+  });
+  html += '</div>';
+
+  // 解析
+  if (answered) {
+    html += `<div class="q-analysis">
+      <div class="q-analysis-label">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+        解析
+      </div>
+      ${escapeHtml(q.analysis)}
+    </div>`;
+  }
+  return html;
+}
+
+function selectChoice(qid, optIdx) {
+  const bank = STUDY_BANK[podSubject] || [];
+  const q = bank.find(x => x.id === qid);
+  if (!q) return;
+  const correct = optIdx === q.answer;
+  const records = getStudyRecords();
+  records[qid] = {
+    done: true,
+    correct: correct,
+    selectedAnswer: optIdx,
+    lastPractice: todayStr()
+  };
+  save(KEYS.studyRecords, records);
+  renderPodQuestion();
+  if (correct) {
+    showToast('回答正确！');
+  } else {
+    showToast('答案错误，再看看解析');
+  }
+}
+
+// 渲染写作/答题类
+function renderTextAnswer(q, r) {
+  const myAnswer = r.myAnswer || '';
+  let html = '';
+
+  // 所有题型统一使用文字输入（手机键盘自带的语音转文字可用）
+  html += `<div class="q-material-label">我的练习</div>`;
+  html += `<textarea class="q-textarea" id="podTextarea" placeholder="在这里写下你的答案/练习内容...（手机键盘自带语音转文字可用）" oninput="savePodAnswer('${q.id}')">${escapeHtml(myAnswer)}</textarea>`;
+  html += `<div class="q-textarea-hint">
+    <span id="podSaveHint">${myAnswer ? '<span class=\"saved\">已保存</span>' : ''}</span>
+  </div>`;
+
+  // 标记已练习按钮
+  if (!r.done) {
+    html += `<button class="btn-primary" style="width:100%;margin-top:10px;" onclick="markPodDone('${q.id}')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+      标记为已练习
+    </button>`;
+  }
+
+  // 参考答案折叠
+  let refContent = '';
+  if (q.points) {
+    refContent += `<div class="q-ref-section"><div class="q-ref-section-title">答题要点</div><ul class="q-points-list">${q.points.map(p => `<li>${escapeHtml(p)}</li>`).join('')}</ul></div>`;
+  }
+  if (q.framework) {
+    refContent += `<div class="q-ref-section"><div class="q-ref-section-title">答题框架</div><div>${escapeHtml(q.framework)}</div></div>`;
+  }
+  if (q.reference) {
+    refContent += `<div class="q-ref-section"><div class="q-ref-section-title">参考答案</div><div>${escapeHtml(q.reference)}</div></div>`;
+  }
+  if (q.essay) {
+    refContent += `<div class="q-ref-section"><div class="q-ref-section-title">参考范文</div><div>${escapeHtml(q.essay)}</div></div>`;
+  }
+  if (q.useful) {
+    refContent += `<div class="q-ref-section"><div class="q-ref-section-title">实用表达</div><ul class="q-points-list">${q.useful.map(p => `<li>${escapeHtml(p)}</li>`).join('')}</ul></div>`;
+  }
+  if (q.sample) {
+    refContent += `<div class="q-ref-section"><div class="q-ref-section-title">示范回答</div><div>${escapeHtml(q.sample)}</div></div>`;
+  }
+  if (q.guide) {
+    refContent += `<div class="q-ref-section"><div class="q-ref-section-title">复述指引</div><div>${escapeHtml(q.guide)}</div></div>`;
+  }
+  if (q.keyPoints) {
+    refContent += `<div class="q-ref-section"><div class="q-ref-section-title">核心要点</div><ul class="q-points-list">${q.keyPoints.map(p => `<li>${escapeHtml(p)}</li>`).join('')}</ul></div>`;
+  }
+  if (q.topic) {
+    refContent += `<div class="q-ref-section"><div class="q-ref-section-title">话题说明</div><div>${escapeHtml(q.topic)}</div></div>`;
+  }
+
+  if (refContent) {
+    html += `<div class="q-ref-toggle" onclick="toggleRef(this)">
+      <span>查看参考答案 / 要点</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+    </div>
+    <div class="q-ref-content">${refContent}</div>`;
+  }
+
+  return html;
+}
+
+function toggleRef(el) {
+  el.classList.toggle('open');
+  const content = el.nextElementSibling;
+  content.classList.toggle('show');
+}
+
+let podSaveTimer = null;
+function savePodAnswer(qid) {
+  const hint = document.getElementById('podSaveHint');
+  if (hint) { hint.innerHTML = '<span class="saving">保存中...</span>'; }
+  clearTimeout(podSaveTimer);
+  podSaveTimer = setTimeout(() => {
+    const text = document.getElementById('podTextarea').value;
+    const records = getStudyRecords();
+    if (!records[qid]) records[qid] = {};
+    records[qid].myAnswer = text;
+    records[qid].lastPractice = todayStr();
+    if (text.trim()) records[qid].done = true;
+    save(KEYS.studyRecords, records);
+    if (hint) { hint.innerHTML = '<span class="saved">已保存</span>'; }
+  }, 600);
+}
+
+function clearVoice(qid) {
+  const records = getStudyRecords();
+  if (records[qid]) {
+    records[qid].myAnswer = '';
+    records[qid].done = false;
+    save(KEYS.studyRecords, records);
+  }
+  renderPodQuestion();
+  showToast('已清空');
+}
+
+function markPodDone(qid) {
+  const records = getStudyRecords();
+  if (!records[qid]) records[qid] = {};
+  records[qid].done = true;
+  records[qid].lastPractice = todayStr();
+  save(KEYS.studyRecords, records);
+  showToast('已标记为已练习');
+  renderPodQuestion();
+}
+
+function podNext() {
+  const bank = STUDY_BANK[podSubject] || [];
+  if (podIndex < bank.length - 1) {
+    podIndex++;
+    renderPodQuestion();
+  }
+}
+
+function podPrev() {
+  if (podIndex > 0) {
+    podIndex--;
+    renderPodQuestion();
+  }
+}
+
+// ============================================================
+// 渲染：考公学习
+// ============================================================
+function renderStudySubjects() {
+  const records = getStudyRecords();
+  const container = document.getElementById('studySubjects');
+  container.innerHTML = STUDY_SUBJECTS.map(s => {
+    // 学习舱进度
+    const bank = STUDY_BANK[s.id] || [];
+    const practiced = bank.filter(q => records[q.id] && records[q.id].done).length;
+    const isDaily = DAILY_SUBJECTS.includes(s.id);
+    const enterLabel = isDaily ? '点击进入今日练习' : '点击进入题库';
+    return `<div class="subject-card ${currentStudy === s.id ? 'active' : ''}" onclick="switchStudy('${s.id}')">
+      <div class="sname">${s.name}</div>
+      <div class="scount">${isDaily ? '每日一题 · ' : ''}共 ${bank.length} 题 · 已练 ${practiced}</div>
+      <div class="sbar"><div class="sbar-fill" style="width:${bank.length > 0 ? Math.round(practiced/bank.length*100) : 0}%;background:${s.color};"></div></div>
+      <div class="subject-enter" onclick="event.stopPropagation();openStudyPod('${s.id}')">
+        ${enterLabel}
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function switchStudy(id) {
+  currentStudy = id;
+  save(KEYS.currentStudy, id);
+  renderStudy();
+}
+
+function renderStudy() {
+  renderStudySubjects();
+}
+
+// ============================================================
+// 渲染：娱乐幸福
+// ============================================================
+function renderMedia() {
+  const media = load(KEYS.media, []);
+  const list = document.getElementById('mediaList');
+  if (media.length === 0) {
+    list.innerHTML = `<div class="empty-state">${ICONS.empty}<div class="etext">还没有记录，添加第一部吧</div></div>`;
+    return;
+  }
+  media.sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+  const typeLabels = { movie: '电影', tv: '剧', doc: '纪录', book: '书', other: '其他' };
+  const typeColors = { movie: '#D4A574', tv: '#88A8C0', doc: '#7C9885', book: '#A89BC0', other: '#B8A088' };
+
+  list.innerHTML = media.map(m => {
+    const stars = Array.from({length: 5}, (_, i) => i < m.rating ? `<span class="star">${ICONS.star}</span>` : `<span class="star-empty">${ICONS.star}</span>`).join('');
+    return `<div class="media-item">
+      <div class="media-poster" style="background:${typeColors[m.type] || '#B8A088'};">${typeLabels[m.type] || '其他'}</div>
+      <div class="media-info">
+        <div class="media-title">${escapeHtml(m.title)}</div>
+        <div class="media-meta">${m.date ? fmtDate(m.date) : ''}</div>
+        <div class="media-rating">${stars}</div>
+        ${m.note ? `<div class="media-note">${escapeHtml(m.note)}</div>` : ''}
+      </div>
+      <div class="task-actions">
+        <button class="task-action-btn" onclick="openEditMedia('${m.id}')">${ICONS.edit}</button>
+        <button class="task-action-btn delete" onclick="deleteMedia('${m.id}')">${ICONS.trash}</button>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function openMediaModal() {
+  editingMediaId = null;
+  document.getElementById('mediaModalTitle').textContent = '添加影视';
+  document.getElementById('mediaTitle').value = '';
+  document.getElementById('mediaType').value = 'movie';
+  document.getElementById('mediaDate').value = todayStr();
+  document.getElementById('mediaNote').value = '';
+  setStar(4);
+  openModal('mediaModal');
+}
+
+function openEditMedia(id) {
+  const media = load(KEYS.media, []);
+  const m = media.find(x => x.id === id);
+  if (!m) return;
+  editingMediaId = id;
+  document.getElementById('mediaModalTitle').textContent = '编辑影视';
+  document.getElementById('mediaTitle').value = m.title;
+  document.getElementById('mediaType').value = m.type;
+  document.getElementById('mediaDate').value = m.date || '';
+  document.getElementById('mediaNote').value = m.note || '';
+  setStar(m.rating || 0);
+  openModal('mediaModal');
+}
+
+function setStar(n) {
+  currentStar = n;
+  document.querySelectorAll('.star-btn').forEach(b => b.classList.toggle('active', parseInt(b.dataset.star) <= n));
+}
+
+function saveMedia() {
+  const title = document.getElementById('mediaTitle').value.trim();
+  if (!title) { showToast('请输入名称'); return; }
+  const type = document.getElementById('mediaType').value;
+  const date = document.getElementById('mediaDate').value;
+  const note = document.getElementById('mediaNote').value.trim();
+  const rating = currentStar;
+  const media = load(KEYS.media, []);
+  if (editingMediaId) {
+    const m = media.find(x => x.id === editingMediaId);
+    if (m) { Object.assign(m, { title, type, date, note, rating }); }
+  } else {
+    media.unshift({ id: uid(), title, type, date, note, rating });
+  }
+  save(KEYS.media, media);
+  closeModal('mediaModal');
+  renderMedia();
+  showToast('已保存');
+}
+
+function deleteMedia(id) {
+  showConfirm('删除记录', '确定删除这条影视记录吗？', () => {
+    const media = load(KEYS.media, []);
+    save(KEYS.media, media.filter(m => m.id !== id));
+    renderMedia();
+    showToast('已删除');
+  });
+}
+
+function renderHappy() {
+  const happy = load(KEYS.happy, []);
+  const list = document.getElementById('happyList');
+  if (happy.length === 0) {
+    list.innerHTML = `<div class="empty-state">${ICONS.empty}<div class="etext">还没有记录，今天有什么开心的事？</div></div>`;
+    return;
+  }
+  happy.sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+  list.innerHTML = happy.map(h => `<div class="happy-item">
+    <div class="happy-icon">${ICONS.smile}</div>
+    <div class="happy-body">
+      <div class="happy-text">${escapeHtml(h.text)}</div>
+      <div class="happy-date">${h.date ? fmtDate(h.date) : ''}</div>
+    </div>
+    <div class="task-actions">
+      <button class="task-action-btn" onclick="openEditHappy('${h.id}')">${ICONS.edit}</button>
+      <button class="task-action-btn delete" onclick="deleteHappy('${h.id}')">${ICONS.trash}</button>
+    </div>
+  </div>`).join('');
+}
+
+function openHappyModal() {
+  editingHappyId = null;
+  document.getElementById('happyModalTitle').textContent = '记录幸福小事';
+  document.getElementById('happyText').value = '';
+  document.getElementById('happyDate').value = todayStr();
+  openModal('happyModal');
+}
+
+function openEditHappy(id) {
+  const happy = load(KEYS.happy, []);
+  const h = happy.find(x => x.id === id);
+  if (!h) return;
+  editingHappyId = id;
+  document.getElementById('happyModalTitle').textContent = '编辑幸福小事';
+  document.getElementById('happyText').value = h.text;
+  document.getElementById('happyDate').value = h.date || todayStr();
+  openModal('happyModal');
+}
+
+function saveHappy() {
+  const text = document.getElementById('happyText').value.trim();
+  if (!text) { showToast('请输入内容'); return; }
+  const date = document.getElementById('happyDate').value;
+  const happy = load(KEYS.happy, []);
+  if (editingHappyId) {
+    const h = happy.find(x => x.id === editingHappyId);
+    if (h) { h.text = text; h.date = date; }
+  } else {
+    happy.unshift({ id: uid(), text, date });
+  }
+  save(KEYS.happy, happy);
+  closeModal('happyModal');
+  renderHappy();
+  showToast(editingHappyId ? '已更新' : '幸福已记录');
+  editingHappyId = null;
+}
+
+function deleteHappy(id) {
+  showConfirm('删除记录', '确定删除这条幸福记录吗？', () => {
+    const happy = load(KEYS.happy, []);
+    save(KEYS.happy, happy.filter(h => h.id !== id));
+    renderHappy();
+    showToast('已删除');
+  });
+}
+
+// ============================================================
+// 倒计时编辑
+// ============================================================
+function openCountdownEdit() {
+  const cd = load(KEYS.countdown, { date: '2031-07-09', label: '服务期' });
+  document.getElementById('countdownDateInput').value = cd.date;
+  document.getElementById('countdownLabelInput').value = cd.label;
+  openModal('countdownModal');
+}
+
+function saveCountdown() {
+  const date = document.getElementById('countdownDateInput').value;
+  const label = document.getElementById('countdownLabelInput').value.trim() || '服务期';
+  if (!date) { showToast('请选择日期'); return; }
+  save(KEYS.countdown, { date, label });
+  closeModal('countdownModal');
+  renderCountdown();
+  showToast('已更新');
+}
+
+// ============================================================
+// 弹窗控制
+// ============================================================
+function openModal(id) { document.getElementById(id).classList.add('active'); }
+function closeModal(id) { document.getElementById(id).classList.remove('active'); }
+
+let confirmCallback = null;
+function showConfirm(title, desc, callback, safe) {
+  document.getElementById('confirmTitle').textContent = title;
+  document.getElementById('confirmDesc').textContent = desc;
+  const btn = document.getElementById('confirmBtn');
+  btn.className = safe ? 'btn-confirm safe' : 'btn-confirm';
+  btn.textContent = '确认';
+  confirmCallback = callback;
+  document.getElementById('confirmOverlay').classList.add('active');
+}
+function closeConfirm() {
+  document.getElementById('confirmOverlay').classList.remove('active');
+  confirmCallback = null;
+}
+function execConfirm() {
+  if (confirmCallback) confirmCallback();
+  closeConfirm();
+}
+
+// Toast
+let toastTimer = null;
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t.classList.remove('show'), 2000);
+}
+
+// HTML 转义
+function escapeHtml(s) {
+  if (!s) return '';
+  return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+}
+
+// ============================================================
+// 数据导入导出
+// ============================================================
+function exportData() {
+  const data = {};
+  Object.keys(KEYS).forEach(k => {
+    const v = localStorage.getItem(KEYS[k]);
+    if (v) data[KEYS[k]] = JSON.parse(v);
+  });
+  const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `成长工作台备份_${todayStr()}.json`;
+  a.click();
+  URL.revokeObjectURL(url);
+  showToast('已导出备份');
+}
+
+function importData(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = (e) => {
+    try {
+      const data = JSON.parse(e.target.result);
+      Object.keys(data).forEach(k => {
+        if (k.startsWith(STORE_PREFIX)) {
+          localStorage.setItem(k, JSON.stringify(data[k]));
+        }
+      });
+      showToast('导入成功');
+      setTimeout(() => location.reload(), 800);
+    } catch(err) {
+      showToast('导入失败：文件格式错误');
+    }
+  };
+  reader.readAsText(file);
+  event.target.value = '';
+}
+
+function clearSampleData() {
+  showConfirm('清空示例数据', '将清空所有示例数据和你的记录，恢复到初始状态。建议先导出备份！', () => {
+    Object.keys(KEYS).forEach(k => localStorage.removeItem(KEYS[k]));
+    // 同时清理已废弃的 studyTasks key 和一次性清零标记
+    localStorage.removeItem(STORE_PREFIX + 'studyTasks');
+    localStorage.removeItem(STORE_PREFIX + 'defaultHabitsCleared');
+    showToast('已清空');
+    setTimeout(() => location.reload(), 800);
+  });
+}
+
+// 备份提示
+function checkBackupNotice() {
+  const tasks = load(KEYS.tasks, []);
+  const media = load(KEYS.media, []);
+  const happy = load(KEYS.happy, []);
+  const total = tasks.length + media.length + happy.length;
+  if (total >= 30 && total % 10 === 0) {
+    document.getElementById('backupNotice').style.display = 'flex';
+    document.getElementById('backupNoticeText').textContent = `数据已积累 ${total} 条，建议导出备份`;
+  } else if (total >= 30) {
+    document.getElementById('backupNotice').style.display = 'flex';
+    document.getElementById('backupNoticeText').textContent = `数据已积累 ${total} 条，建议定期导出备份`;
+  }
+}
+
+// ============================================================
+// 渲染入口
+// ============================================================
+function renderAll() {
+  renderHeader();
+  renderCountdown();
+  renderToday();
+  renderWeekGrid();
+  renderTasks();
+  renderHabits();
+  renderHabitChart();
+  renderWisdom();
+  renderStudy();
+  renderMedia();
+  renderHappy();
+  checkBackupNotice();
+}
+
+// ============================================================
+// 启动
+// ============================================================
+initSampleData();
+// 清理已废弃的 studyTasks，避免旧数据干扰“今天要处理”
+localStorage.removeItem(STORE_PREFIX + 'studyTasks');
+// 一次性清零内置默认习惯的打卡记录
+(function clearDefaultHabitRecords() {
+  const clearedFlag = STORE_PREFIX + 'defaultHabitsCleared';
+  if (localStorage.getItem(clearedFlag)) return;
+  const records = load(KEYS.habitRecords, {});
+  DEFAULT_HABIT_IDS.forEach(id => delete records[id]);
+  save(KEYS.habitRecords, records);
+  localStorage.setItem(clearedFlag, '1');
+})();
+currentGrowth = load(KEYS.currentGrowth, 'body');
+currentStudy = load(KEYS.currentStudy, 'xingce');
+document.querySelector(`.growth-tab[data-growth="${currentGrowth}"]`)?.classList.add('active');
+document.querySelector(`.growth-tab[data-growth="body"]`)?.classList.remove('active');
+if (currentGrowth !== 'body') {
+  document.querySelectorAll('.growth-tab').forEach(t => t.classList.toggle('active', t.dataset.growth === currentGrowth));
+}
+renderAll();
+
+// 注册 Service Worker（支持 PWA 添加到主屏幕）
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('data:text/javascript;base64,' + btoa(`self.addEventListener('install', e => self.skipWaiting()); self.addEventListener('activate', e => e.waitUntil(self.clients.claim())); self.addEventListener('fetch', e => e.respondWith(fetch(e.request).catch(() => caches.match(e.request))));`)).catch(() => {});
+}
+
+// 每天更新智慧锦囊
+const lastWisdomDate = load(STORE_PREFIX + 'wisdomDate', '');
+if (lastWisdomDate !== todayStr()) {
+  let idx = load(KEYS.wisdomIndex, 0);
+  idx = (idx + 1) % WISDOMS.length;
+  save(KEYS.wisdomIndex, idx);
+  save(STORE_PREFIX + 'wisdomDate', todayStr());
+  renderWisdom();
+}
+</script>
+</body>
+</html>
