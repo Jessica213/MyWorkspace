@@ -8,6 +8,6 @@
  * ============================================================ */
 window.APP_CONFIG = {
   // 在 Supabase Dashboard → Project Settings → API 里找到
-  supabaseUrl: "https://rtepokjsqlsqnftcella.supabase.co",    // 例如 https://xxxx.supabase.co
-  anonKey: "sb_publishable_Iv261_6Y8dB-LyWmaskv0w_lyl1SGyq"         // 例如 eyJhbGciOi...
+  supabaseUrl: "",    // 例如 https://xxxx.supabase.co
+  anonKey: ""         // 例如 eyJhbGciOi...
 };

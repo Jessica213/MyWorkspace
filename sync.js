@@ -53,7 +53,7 @@
   function toast(msg) { try { if (window.showToast) window.showToast(msg); } catch (e) {} }
   function nowIso() { return new Date().toISOString(); }
   function isOnline() { return !window.navigator || navigator.onLine !== false; }
-  function hasClient() { return typeof window.createClient === 'function'; }
+  function hasClient() { return window.supabase && typeof window.supabase.createClient === 'function'; }
   function debounce(fn, ms) { var t; return function () { clearTimeout(t); t = setTimeout(fn, ms); }; }
   function getUserId() { return session && session.user ? session.user.id : null; }
 
@@ -73,7 +73,7 @@
     var c = effectiveConfig();
     if (c && hasClient()) {
       try {
-        supabase = window.createClient(c.url, c.anonKey, {
+        supabase = window.supabase.createClient(c.url, c.anonKey, {
           auth: { persistSession: true, autoRefreshToken: true, detectSessionInUrl: true }
         });
         return true;
