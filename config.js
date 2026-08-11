@@ -13,5 +13,5 @@ window.APP_CONFIG = {
 
   // 智谱 AI API Key（用于每日生成阅读材料、口语练习、智慧锦囊）
   // 在 https://open.bigmodel.cn/ 注册获取，GLM-4-Flash 免费
-  zhipuApiKey: "8668dc1423ea446dafcbf9f43780eec7.RPSu1Mrr5sxb94wh"     // 例如 12345678-1234-1234-1234-123456789012.xxxxxx
+  zhipuApiKey: ""     // 例如 12345678-1234-1234-1234-123456789012.xxxxxx
 };
