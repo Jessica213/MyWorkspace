@@ -530,6 +530,86 @@ svg { display: inline-block; vertical-align: middle; }
   color: var(--c-muted);
   margin-top: 2px;
 }
+
+/* 历史任务时间线 */
+.history-timeline { padding-bottom: 8px; }
+.tl-day { margin-bottom: 18px; position: relative; padding-left: 4px; }
+.tl-date {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--c-body);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.tl-count {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--c-muted);
+  background: var(--c-card-soft);
+  padding: 1px 8px;
+  border-radius: 10px;
+}
+.tl-late {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--c-red);
+  background: var(--c-red-soft);
+  padding: 1px 8px;
+  border-radius: 10px;
+}
+.tl-items { position: relative; padding-left: 16px; }
+.tl-items::before {
+  content: '';
+  position: absolute;
+  left: 5px;
+  top: 4px;
+  bottom: 4px;
+  width: 2px;
+  background: var(--c-border);
+}
+.tl-item {
+  display: flex;
+  gap: 10px;
+  padding: 6px 0;
+  position: relative;
+}
+.tl-dot {
+  position: absolute;
+  left: -16px;
+  top: 10px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--c-primary);
+  border: 2px solid #fff;
+  box-shadow: 0 0 0 1px var(--c-border);
+  flex-shrink: 0;
+}
+.tl-item.late .tl-dot { background: var(--c-red); }
+.tl-content { flex: 1; min-width: 0; }
+.tl-text {
+  font-size: 13px;
+  color: var(--c-body);
+  line-height: 1.5;
+  word-break: break-word;
+}
+.tl-meta {
+  font-size: 11px;
+  color: var(--c-muted);
+  margin-top: 3px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.tl-type {
+  background: var(--c-card-soft);
+  padding: 1px 6px;
+  border-radius: 4px;
+}
+.tl-overdue { color: var(--c-red); font-weight: 600; }
+.tl-ontime { color: var(--c-primary); font-weight: 600; }
 .stat-pill.done .num { color: var(--c-primary); }
 
 /* 周视图 */
@@ -1603,6 +1683,7 @@ textarea.form-control { min-height: 80px; resize: vertical; line-height: 1.5; }
       <div class="card-title">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
         任务清单
+        <span class="right-action" onclick="openNewTask()">+ 新建任务</span>
       </div>
       <div class="input-row">
         <input type="text" id="taskInput" placeholder="添加工作任务..." onkeydown="if(event.key==='Enter')addTask()">
@@ -1623,6 +1704,13 @@ textarea.form-control { min-height: 80px; resize: vertical; line-height: 1.5; }
         <button class="filter-btn" data-filter="overdue" onclick="setTaskFilter('overdue')">逾期</button>
       </div>
       <div class="task-list" id="taskList"></div>
+      <div style="margin-top:14px;text-align:center;border-top:1px solid var(--c-border-soft);padding-top:12px;">
+        <button class="btn-ghost" id="historyToggleBtn" onclick="toggleHistoryTimeline()" style="font-size:13px;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:15px;height:15px;vertical-align:middle;margin-right:4px;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span id="historyToggleText">查看历史任务</span>
+        </button>
+      </div>
+      <div id="historyTimeline" style="display:none;margin-top:14px;"></div>
     </div>
   </div>
 
@@ -1760,6 +1848,28 @@ textarea.form-control { min-height: 80px; resize: vertical; line-height: 1.5; }
           <option value="life">生活</option>
         </select>
       </div>
+    </div>
+    <div class="form-group" id="recurrenceGroup">
+      <label class="form-label">重复周期</label>
+      <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:13px;">
+        <select id="taskRecurType" onchange="toggleRecurrenceFields()" style="flex:0 0 auto;padding:6px 8px;border:1px solid var(--c-border);border-radius:6px;font-size:13px;">
+          <option value="none">不重复</option>
+          <option value="daily">每天</option>
+          <option value="interval">每 X 天</option>
+        </select>
+        <span id="recurIntervalWrap" style="display:none;align-items:center;gap:4px;">
+          每 <input type="number" id="taskRecurInterval" value="2" min="1" max="365" oninput="updateRecurHint()" style="width:55px;padding:6px;border:1px solid var(--c-border);border-radius:6px;font-size:13px;text-align:center;"> 天
+        </span>
+        <span id="recurDurationWrap" style="display:none;align-items:center;gap:4px;">
+          持续 <input type="number" id="taskRecurDuration" value="1" min="1" max="365" oninput="updateRecurHint()" style="width:55px;padding:6px;border:1px solid var(--c-border);border-radius:6px;font-size:13px;text-align:center;">
+          <select id="taskRecurUnit" onchange="updateRecurHint()" style="padding:6px 8px;border:1px solid var(--c-border);border-radius:6px;font-size:13px;">
+            <option value="day">天</option>
+            <option value="week">周</option>
+            <option value="month">月</option>
+          </select>
+        </span>
+      </div>
+      <div id="recurHint" style="font-size:11px;color:var(--c-muted);margin-top:4px;display:none;"></div>
     </div>
     <div class="modal-actions">
       <button class="btn-ghost" onclick="closeModal('taskModal')">取消</button>
@@ -2704,33 +2814,20 @@ function renderCountdown() {
 function renderToday() {
   const tasks = load(KEYS.tasks, []);
   const today = todayStr();
-  const now = new Date(); now.setHours(0,0,0,0);
 
-  // 收集所有需要今天处理的（包含已完成，点击只切换状态）
-  const items = [];
+  // 只显示今天到期的任务（已完成和未完成），不显示之前的逾期任务
+  const items = tasks.filter(t => t.dueDate === today).map(t => ({
+    id: t.id,
+    text: t.text,
+    type: t.type || 'work',
+    overdue: false,
+    due: t.dueDate,
+    done: !!t.done
+  }));
 
-  tasks.forEach(t => {
-    const due = t.dueDate ? parseDate(t.dueDate) : null;
-    const isOverdue = due && due < now;
-    const isToday = t.dueDate === today;
-    // 逾期 或 今天到期 的才显示
-    if (isOverdue || isToday) {
-      items.push({
-        id: t.id,
-        text: t.text,
-        type: t.type || 'work',
-        overdue: isOverdue,
-        due: t.dueDate,
-        done: !!t.done
-      });
-    }
-  });
-
-  // 排序：未完成的在前，逾期优先
+  // 排序：未完成的在前
   items.sort((a, b) => {
     if (a.done !== b.done) return a.done ? 1 : -1;
-    if (a.overdue && !b.overdue) return -1;
-    if (!a.overdue && b.overdue) return 1;
     return 0;
   });
 
@@ -2809,6 +2906,20 @@ function renderWeekGrid() {
   document.getElementById('weekRate').textContent = weekTasks.length > 0 ? Math.round(weekDone / weekTasks.length * 100) + '%' : '0%';
 }
 
+// 判断任务是否逾期：未完成且已过期，或已完成但完成时间晚于截止日期
+function isTaskOverdue(t) {
+  if (!t.dueDate) return false;
+  const today = todayStr();
+  if (!t.done) {
+    return t.dueDate < today;
+  }
+  if (t.completedAt) {
+    const completedDate = t.completedAt.slice(0, 10);
+    return completedDate > t.dueDate;
+  }
+  return false;
+}
+
 function renderTasks() {
   const tasks = load(KEYS.tasks, []);
   const today = todayStr();
@@ -2817,7 +2928,7 @@ function renderTasks() {
   let filtered = tasks;
   if (taskFilter === 'pending') filtered = tasks.filter(t => !t.done);
   else if (taskFilter === 'done') filtered = tasks.filter(t => t.done);
-  else if (taskFilter === 'overdue') filtered = tasks.filter(t => !t.done && t.dueDate && parseDate(t.dueDate) < now);
+  else if (taskFilter === 'overdue') filtered = tasks.filter(t => isTaskOverdue(t));
 
   // 排序：未完成在前，按优先级 P0>P1>P2，再按截止日期
   const prioOrder = { p0: 0, p1: 1, p2: 2 };
@@ -2839,12 +2950,11 @@ function renderTasks() {
     const due = t.dueDate ? parseDate(t.dueDate) : null;
     let dueClass = '';
     let dueText = '';
-    if (due && !t.done) {
-      if (due < now) { dueClass = 'overdue'; dueText = `逾期 ${fmtDate(t.dueDate)}`; }
-      else if (t.dueDate === today) { dueClass = 'today'; dueText = '今天'; }
+    const overdue = isTaskOverdue(t);
+    if (due) {
+      if (overdue) { dueClass = 'overdue'; dueText = `逾期 ${fmtDate(t.dueDate)}`; }
+      else if (t.dueDate === today && !t.done) { dueClass = 'today'; dueText = '今天'; }
       else dueText = fmtDate(t.dueDate);
-    } else if (t.dueDate) {
-      dueText = fmtDate(t.dueDate);
     }
     return `<div class="task-item ${t.done ? 'done' : ''}">
       <div class="task-check" onclick="toggleTask('${t.id}')">${ICONS.check}</div>
@@ -2867,6 +2977,72 @@ function setTaskFilter(f) {
   taskFilter = f;
   document.querySelectorAll('.filter-btn').forEach(b => b.classList.toggle('active', b.dataset.filter === f));
   renderTasks();
+}
+
+// 历史任务时间线
+let historyVisible = false;
+function toggleHistoryTimeline() {
+  historyVisible = !historyVisible;
+  const el = document.getElementById('historyTimeline');
+  const btn = document.getElementById('historyToggleText');
+  if (historyVisible) {
+    el.style.display = '';
+    btn.textContent = '收起历史任务';
+    renderHistoryTimeline();
+  } else {
+    el.style.display = 'none';
+    btn.textContent = '查看历史任务';
+  }
+}
+
+function renderHistoryTimeline() {
+  const tasks = load(KEYS.tasks, []);
+  const today = todayStr();
+  // 已完成的任务（有完成时间戳），且不是今天完成的
+  const completed = tasks.filter(t => t.done && t.completedAt);
+  if (completed.length === 0) {
+    document.getElementById('historyTimeline').innerHTML =
+      '<div style="text-align:center;color:var(--c-muted);font-size:13px;padding:20px 0;">暂无历史完成记录</div>';
+    return;
+  }
+  // 按完成日期分组
+  const groups = {};
+  completed.forEach(t => {
+    const date = t.completedAt.slice(0, 10);
+    if (!groups[date]) groups[date] = [];
+    groups[date].push(t);
+  });
+  const dates = Object.keys(groups).sort().reverse();
+  const typeLabels = { work: '工作', growth: '成长', study: '学习', life: '生活' };
+  let html = '<div class="history-timeline">';
+  dates.forEach(date => {
+    const items = groups[date];
+    const onTime = items.filter(t => !isTaskOverdue(t)).length;
+    const late = items.length - onTime;
+    html += `<div class="tl-day">
+      <div class="tl-date">${fmtDate(date)}
+        <span class="tl-count">${items.length} 项</span>
+        ${late > 0 ? `<span class="tl-late">${late} 项逾期</span>` : ''}
+      </div>
+      <div class="tl-items">`;
+    items.forEach(t => {
+      const overdue = isTaskOverdue(t);
+      html += `<div class="tl-item ${overdue ? 'late' : 'ontime'}">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-text">${escapeHtml(t.text)}</div>
+          <div class="tl-meta">
+            <span class="tl-type">${typeLabels[t.type] || '任务'}</span>
+            <span>截止 ${fmtDate(t.dueDate)}</span>
+            ${overdue ? '<span class="tl-overdue">逾期完成</span>' : '<span class="tl-ontime">按时完成</span>'}
+          </div>
+        </div>
+      </div>`;
+    });
+    html += '</div></div>';
+  });
+  html += '</div>';
+  document.getElementById('historyTimeline').innerHTML = html;
 }
 
 function addTask() {
@@ -2895,7 +3071,11 @@ function toggleTask(id) {
   const t = tasks.find(x => x.id === id);
   if (t) {
     t.done = !t.done;
-    if (t.done) t.completedAt = todayStr();
+    if (t.done) {
+      t.completedAt = new Date().toISOString();
+    } else {
+      delete t.completedAt;
+    }
     save(KEYS.tasks, tasks);
     renderAll();
   }
@@ -2920,6 +3100,10 @@ function openEditTask(id) {
   document.getElementById('taskModalDue').value = t.dueDate || '';
   document.getElementById('taskModalType').value = t.type || 'work';
   setModalPrio(t.priority || 'p1');
+  // 编辑单条任务时不显示循环设置（循环已生成为独立实例）
+  document.getElementById('taskRecurType').value = 'none';
+  toggleRecurrenceFields();
+  document.getElementById('recurrenceGroup').style.display = 'none';
   openModal('taskModal');
 }
 
@@ -2928,11 +3112,73 @@ function setModalPrio(p) {
   document.querySelectorAll('.priority-pill').forEach(el => el.classList.toggle('active', el.dataset.prio === p));
 }
 
+// 打开新建任务弹窗
+function openNewTask() {
+  editingTaskId = null;
+  document.getElementById('taskModalTitle').textContent = '新建任务';
+  document.getElementById('taskModalText').value = '';
+  document.getElementById('taskModalDue').value = todayStr();
+  document.getElementById('taskModalType').value = 'work';
+  setModalPrio('p1');
+  document.getElementById('taskRecurType').value = 'none';
+  document.getElementById('taskRecurInterval').value = 2;
+  document.getElementById('taskRecurDuration').value = 1;
+  document.getElementById('taskRecurUnit').value = 'month';
+  document.getElementById('recurrenceGroup').style.display = '';
+  toggleRecurrenceFields();
+  openModal('taskModal');
+}
+
+// 切换重复周期字段显示
+function toggleRecurrenceFields() {
+  const type = document.getElementById('taskRecurType').value;
+  const intervalWrap = document.getElementById('recurIntervalWrap');
+  const durationWrap = document.getElementById('recurDurationWrap');
+  const hint = document.getElementById('recurHint');
+  if (type === 'none') {
+    intervalWrap.style.display = 'none';
+    durationWrap.style.display = 'none';
+    hint.style.display = 'none';
+  } else {
+    intervalWrap.style.display = type === 'interval' ? 'inline-flex' : 'none';
+    durationWrap.style.display = 'inline-flex';
+    updateRecurHint();
+  }
+}
+
+// 更新重复周期提示
+function updateRecurHint() {
+  const type = document.getElementById('taskRecurType').value;
+  const interval = parseInt(document.getElementById('taskRecurInterval').value) || 1;
+  const duration = parseInt(document.getElementById('taskRecurDuration').value) || 1;
+  const unit = document.getElementById('taskRecurUnit').value;
+  const hint = document.getElementById('recurHint');
+  const totalDays = calcDurationDays(duration, unit);
+  const stepDays = type === 'daily' ? 1 : interval;
+  const count = Math.floor(totalDays / stepDays) + 1;
+  const freq = type === 'daily' ? '每天' : `每 ${interval} 天`;
+  const durText = duration + (unit === 'day' ? '天' : unit === 'week' ? '周' : '个月');
+  hint.textContent = `将从起始日起 ${freq} 生成一次，持续 ${durText}，共 ${count} 个任务`;
+  hint.style.display = 'block';
+}
+
+// 计算持续天数
+function calcDurationDays(duration, unit) {
+  if (unit === 'day') return duration - 1;
+  if (unit === 'week') return duration * 7 - 1;
+  if (unit === 'month') return duration * 30 - 1;
+  return 0;
+}
+
 function saveTaskModal() {
   const text = document.getElementById('taskModalText').value.trim();
   if (!text) { showToast('请输入任务内容'); return; }
   const due = document.getElementById('taskModalDue').value;
   const type = document.getElementById('taskModalType').value;
+  const recurType = document.getElementById('taskRecurType').value;
+  const recurInterval = parseInt(document.getElementById('taskRecurInterval').value) || 1;
+  const recurDuration = parseInt(document.getElementById('taskRecurDuration').value) || 1;
+  const recurUnit = document.getElementById('taskRecurUnit').value;
   const tasks = load(KEYS.tasks, []);
   if (editingTaskId) {
     const t = tasks.find(x => x.id === editingTaskId);
@@ -2942,16 +3188,49 @@ function saveTaskModal() {
       t.type = type;
       t.priority = modalPrio;
     }
+    save(KEYS.tasks, tasks);
+    closeModal('taskModal');
+    editingTaskId = null;
+    renderAll();
+    showToast('已保存');
   } else {
-    tasks.unshift({
-      id: uid(), text, priority: modalPrio, type, dueDate: due || todayStr(), done: false, createdAt: todayStr()
-    });
+    const startDate = due || todayStr();
+    if (recurType === 'none') {
+      tasks.unshift({
+        id: uid(), text, priority: modalPrio, type, dueDate: startDate, done: false, createdAt: todayStr()
+      });
+      save(KEYS.tasks, tasks);
+      closeModal('taskModal');
+      editingTaskId = null;
+      renderAll();
+      showToast('已保存');
+    } else {
+      // 生成循环任务实例
+      const stepDays = recurType === 'daily' ? 1 : recurInterval;
+      const totalDays = calcDurationDays(recurDuration, recurUnit);
+      const groupId = uid();
+      const instances = [];
+      const start = parseDate(startDate);
+      for (let offset = 0; offset <= totalDays; offset += stepDays) {
+        const d = new Date(start);
+        d.setDate(start.getDate() + offset);
+        instances.push({
+          id: uid(), text, priority: modalPrio, type,
+          dueDate: dateStr(d), done: false, createdAt: todayStr(),
+          recurrenceGroup: groupId, recurrenceIndex: instances.length
+        });
+      }
+      // 倒序插入，使最近的日期排在前面
+      for (let i = instances.length - 1; i >= 0; i--) {
+        tasks.unshift(instances[i]);
+      }
+      save(KEYS.tasks, tasks);
+      closeModal('taskModal');
+      editingTaskId = null;
+      renderAll();
+      showToast(`已创建 ${instances.length} 个循环任务`);
+    }
   }
-  save(KEYS.tasks, tasks);
-  closeModal('taskModal');
-  editingTaskId = null;
-  renderAll();
-  showToast('已保存');
 }
 
 // ============================================================
@@ -3291,8 +3570,12 @@ function renderPodHeader() {
   const records = getStudyRecords();
   const doneCount = bank.filter(q => records[q.id] && records[q.id].done).length;
   const isDaily = DAILY_SUBJECTS.includes(podSubject);
+  const isAiSubject = (podSubject === 'english' || podSubject === 'readexpress');
   document.getElementById('podTitle').textContent = SUBJECT_LABELS[podSubject] || '学习舱';
-  if (isDaily) {
+  if (isAiSubject) {
+    // AI 生成材料：一次显示一题，不需要题号计数
+    document.getElementById('podProgress').textContent = '';
+  } else if (isDaily) {
     document.getElementById('podProgress').textContent = `每日一题 · 第 ${podIndex + 1} 题 · 已练 ${doneCount}/${bank.length}`;
   } else {
     document.getElementById('podProgress').textContent = `共 ${bank.length} 题 · 已练 ${doneCount} 题`;
@@ -3379,10 +3662,11 @@ function renderPodQuestion() {
   const records = getStudyRecords();
   const r = records[q.id] || {};
   const isDaily = DAILY_SUBJECTS.includes(podSubject);
+  const isAiSubject = (podSubject === 'english' || podSubject === 'readexpress');
 
   let html = `<div class="q-card">`;
   html += `<div class="q-tag-row">
-    <span class="q-tag num">${isDaily ? '今日' : '第'} ${podIndex + 1} / ${bank.length} 题</span>
+    ${isAiSubject ? '' : `<span class="q-tag num">${isDaily ? '今日' : '第'} ${podIndex + 1} / ${bank.length} 题</span>`}
     <span class="q-tag cat">${q.category}</span>
     ${r.done ? `<span class="q-tag ${r.correct === true ? 'correct' : r.correct === false ? 'wrong' : 'done'}">${r.correct === true ? '已答对' : r.correct === false ? '已答错' : '已练习'}</span>` : ''}
   </div>`;
@@ -4116,6 +4400,7 @@ function renderAll() {
   renderMedia();
   renderHappy();
   checkBackupNotice();
+  if (historyVisible) renderHistoryTimeline();
 }
 
 // ============================================================
